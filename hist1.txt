@@ -1,0 +1,278 @@
+    1  pwd
+    2  ls -la
+    3  exit
+    4  mkdir -p /scratch/project_465000956/jpeltoah
+    5  cd /scratch/project_465000956/
+    6  whoami
+    7  cd /scratch/project_462000956
+    8  mkdir jpeltoah
+    9  ls -la
+   10  cd jpeltoah/
+   11  git clone https://github.com/JukkaPeltoaho/summerschool.git
+   12  ls -la
+   13  cd summerschool/
+   14  ls -al
+   15  vi COPYING 
+   16  git status
+   17  git add COPYING 
+   18  git commit -m "test"
+   19  git config --global user.email "jukka.peltoaho@gmail.com"
+   20  git config --global user.name "Jukka Pelto-aho"
+   21  git commit -m "test"
+   22  git push
+   23  ls -la ~/
+   24  cd ~/
+   25  pwd
+   26  ssh-keygen -t rsa -b 4096 -C "jukka.peltoaho@gmail.com"
+   27  cat .ssh/id_rsa.pub 
+   28  history
+   29  cd /scratch/project_462000956
+   30  cd /scratch/project_462000956/jpeltoah/
+   31  ls -la
+   32  cd summerschool/
+   33  git status
+   34  git push
+   35  ssh -T git@github.com
+   36  git push
+   37  eval "$(ssh-agent -s)"
+   38  ssh-add ~/.ssh/id_rsa
+   39  git push
+   40  cd ..
+   41  rm -rf summerschool/
+   42  ls -la
+   43  git clone git@github.com:JukkaPeltoaho/summerschool.git
+   44  cd summerschool/
+   45  vi COPYING 
+   46  git add COPYING 
+   47  git commit -m "test"
+   48  git push
+   49  pwd
+   50  ls -la ../..
+   51  lumi-workspaces
+   52  ls -la ../..
+   53  ls -la ../.. | wc -l
+   54  cd ..
+   55  ls -la
+   56  chown -R jpeltoah:jpeltoah .
+   57  chgrp -R jpeltoah .
+   58  ls -la
+   59  ls -la ..
+   60  chmod -R go-rwx .
+   61  ls -la
+   62  clear
+   63  module list
+   64  module spider rocm
+   65  module spider rocm/6.0.2
+   66  module spider rocm/6.0.3
+   67  module show rocm/6.0.3
+   68  exit
+   69  history
+   70  cd /scratch/project_462000956/jpeltoah/
+   71  cd summerschool/
+   72  ls -la
+   73  cd intro-to-hpc/
+   74  ls -la
+   75  module load LUMI/24.03
+   76  module load partition/C
+   77  ls
+   78  cd building-running/cpu/
+   79  make
+   80  ls
+   81  vi prog.cpp 
+   82  cat util.cpp 
+   83  cat util.cpp ls -la
+   84  ls -la
+   85  cat prog.cpp util.cpp 
+   86  cd ../
+   87  sbatch job_cpu.sh 
+   88  cd cpu/
+   89  vi prog.cpp 
+   90  make
+   91  cat prog.cpp util.cpp 
+   92  vi prog.cpp 
+   93  make
+   94  cd ..
+   95  sbatch job_cpu.sh 
+   96  squeque
+   97  squeue -me
+   98  squeue --me
+   99  cd cpu/
+  100  vi prog.cpp 
+  101  vi util.cpp 
+  102  make
+  103  cd ..
+  104  sbatch job_cpu.sh 
+  105  cd cpu/
+  106  vi util.cpp 
+  107  make
+  108  cd ..
+  109  sbatch job_cpu.sh 
+  110  ls 
+  111  ls -lart
+  112  cat example.11581196.out 
+  113  cat example.11581184.out 
+  114  cat example.11581167.out 
+  115  cat example.11581156.out 
+  116  rm example.115811*
+  117  ls -lart
+  118  cd cpu
+  119  git diff
+  120  ps
+  121  kill 110075
+  122  ps
+  123  kill -9 110075
+  124  ps
+  125  git status
+  126  git stash
+  127  make
+  128  cd ../
+  129  sbatch job_cpu.sh 
+  130  ls -la
+  131  more example.11581240.out 
+  132  git status
+  133  cat job_cpu.sh 
+  134  cd cpu/
+  135  sbatch ../job_cpu.sh 
+  136  ls 
+  137  cat example.11581255.out 
+  138  vi util.cpp 
+  139  make
+  140  sbatch ../job_cpu.sh 
+  141  cat example.11581269.out 
+  142  sbatch --nodes=2 --ntasks-per-node=4 ../job_cpu.sh
+  143  cat example.11581278.out 
+  144  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --partition=small --time=0:05:00 ../prog
+  145  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --partition=small --time=0:05:00 ./prog
+  146  module load LUMI/24.03
+  147  module load partition/G
+  148  module load rocm/6.0.3
+  149  cd ../gpu/
+  150  make
+  151  sbatch ../job_gpu.sh 
+  152  ls 
+  153  ls ..
+  154  ls 
+  155  squeue --me
+  156  squeue -j 11581330 --start
+  157  squeue --me
+  158  scancel 11581330
+  159  squeue --me
+  160  cat ../job_gpu.sh 
+  161  sbatch ../job_gpu.sh 
+  162  squeue --me
+  163  squeue -j 11581482 --start
+  164  ls 
+  165  cat example.11581482.out 
+  166  cd ../../scalability/heat-equation-3d/
+  167  make
+  168  ls
+  169  ls -la
+  170  cat ../job.sh 
+  171  sbatch ../job.sh 
+  172  ls
+  173  squeue --me
+  174  ls
+  175  cat scalability.11581630.out 
+  176  ls -lart
+  177  cat scalability.11581630.out 
+  178  sbatch --job-name=n02 --nodes=1 --ntasks-per-node=2 --gpus-per-node=2 ../job.sh
+  179  squeue --me
+  180  squeue -j 11581783 --start
+  181  squeue --me
+  182  squeue -j 11581783 --start
+  183  squeue --me
+  184  squeue -j 11581783 --start
+  185  squeue --me
+  186  ls
+  187  cat scalability.11581630.out 
+  188  ls -lart
+  189  cat n02.11581783.out 
+  190  sbatch --job-name=n04 --nodes=1 --ntasks-per-node=4 --gpus-per-node=4 ../job.sh
+  191  squeue --me
+  192  squeue -j 11581961 --start
+  193  squeue --me
+  194  scancel 11581961 
+  195  sbatch --job-name=n04 --nodes=1 --ntasks-per-node=4 --gpus-per-node=4 ../job.sh
+  196  squeue --me
+  197  squeue -j 11582074 --start
+  198  squeue --me
+  199  squeue -j 11582074 --start
+  200  history | grep start
+  201  sacct 11581961
+  202  sacct 11581783
+  203  sacct
+  204  sacct --help
+  205  sacct -j 11581783
+  206  squeue -j 11582074 --start
+  207  sacct
+  208  ls -lart
+  209  squeue --me
+  210  squeue -j 11582074 --start
+  211  sacct
+  212  squeue -j 11582074 --start
+  213  sacct
+  214  squeue 
+  215  squeue -j 11582074 --start
+  216  exit
+  217  squeue -j 11582074 --start
+  218  squeue --me
+  219  cd /scratch/project_462000956/jpeltoah/
+  220  cd summerschool/intro-to-hpc/scalability/
+  221  ls
+  222  cd heat-equation-3d/
+  223  ls
+  224  cat n04.11582074.out 
+  225  sacct
+  226  sbatch --job-name=n08 --nodes=1 --ntasks-per-node=8 --gpus-per-node=8 ../job.sh
+  227  sbatch --job-name=n16 --nodes=2 --ntasks-per-node=8 --gpus-per-node=8 ../job.sh
+  228  squeue --me
+  229  exit
+  230  cd /scratch/project_462000956/jpeltoah/
+  231  cd summerschool/intro-to-hpc/scalability/
+  232  ls
+  233  cd heat-equation-3d/
+  234  ls
+  235  cat n04.11582074.out 
+  236  cat n08.11585392.out 
+  237  cat n16.11585393.out 
+  238  cd ../../
+  239  cd ../mpi/
+  240  ls
+  241  cd demos/
+  242  ls
+  243  cat hello.c 
+  244  mpicc hello.c 
+  245  ls -lart
+  246  cc -o hello hello.c 
+  247  ls -rt
+  248  ls -lart
+  249  ./hello 
+  250  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --partition=small --time=0:05:00 ./hello
+  251  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  252  rm a.out
+  253  cd ../hello-world/
+  254  ls
+  255  cat hello.c
+  256  vi hello.c
+  257  cc -o hello hello.c
+  258  ls
+  259  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  260  srun --account=project_462000956 --nodes=1 --ntasks-per-node=5 --partition=small --time=0:05:00 ./hello
+  261  vi hello.c
+  262  cc -o hello hello.c
+  263  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  264  srun --account=project_462000956 --nodes=1 --ntasks-per-node=0 --partition=small --time=0:05:00 ./hello
+  265  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./hello
+  266  srun --account=project_462000956 --nodes=1 --ntasks-per-node=42 --partition=small --time=0:05:00 ./hello
+  267  srun --account=project_462000956 --nodes=1 --ntasks-per-node=64 --partition=small --time=0:05:00 ./hello
+  268  man MPI_Get_processor_name
+  269  vi hello.c
+  270  cc -o hello hello.c
+  271  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./hello
+  272  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --partition=small --time=0:05:00 ./hello
+  273  vi hello.c
+  274  cc -o hello hello.c
+  275  srun --account=project_462000956 --nodes=2 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  276  cat hello.c
+  277  history 
+  278  history > ../../hist1.txt
