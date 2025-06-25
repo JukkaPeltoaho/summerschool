@@ -19,34 +19,33 @@ int main(int argc, char *argv[]) {
 	int tag = 123;
     // Initialize buffers
     for (int i = 0; i < numElements; i++) {
-        message[i] = rank;
+        message[i] = 10 + rank;
         receiveBuffer[i] = -1;
     }
 
     // TODO: Set source and destination ranks to form a message chain:
     //      rank1 -> rank2 -> rank3 -> ...
     // Treat boundaries with MPI_PROC_NULL.
-    int source = -1;
-    int destination = -1;
 
-    int sender_rank = (rank == ntasks - 1) ? MPI_PROC_NULL : my_rank + 1;
-    int recipient_rank = (my_rank == 0) ? MPI_PROC_NULL : my_rank - 1;
+    int destination = (rank == ntasks - 1) ? MPI_PROC_NULL : rank + 1;
+    int source = (rank == 0) ? MPI_PROC_NULL : rank - 1;
 
     // Start measuring the time spent in communication
     MPI_Barrier(MPI_COMM_WORLD);
     double t0 = MPI_Wtime();
 
+    int sendTag = rank + 1;
     // TODO: Send messages
-	MPI_Send(message.data(), message.size(), MPI_INT, sender_rank, tag, MPI_COMM_WORLD);
+	MPI_Send(message.data(), message.size(), MPI_INT, destination, sendTag, MPI_COMM_WORLD);
 
     printf("Sender: %d. Sent elements: %d. Tag: %d. Receiver: %d\n",
-           rank, numElements, sender_rank, recipient_rank
+           rank, numElements, sendTag,destination 
     );
 
     // TODO: Receive messages
-
-	MPI_Recv(receiveBuffer.data(), numElements, MPI_INT, recipient_rank, tag, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    printf("Receiver: %d. first element %d\n", rank, receiveBuffer[0]);
+    int recvTag = rank;
+	MPI_Recv(receiveBuffer.data(), numElements, MPI_INT, source, recvTag, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    printf("Receiver: %d. Receive tag: %d.  first element %d\n", rank, recvTag, receiveBuffer[0]);
 
 
     // Finalize measuring the time and print it out
