@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 {
     int size, rank, buf_size=12;
     std::vector<int> buf(buf_size);
+    std::vector<int> recvbuf(buf_size, -1);
 
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -30,12 +31,12 @@ int main(int argc, char *argv[])
     /* Send everywhere */
     // TODO: Implement the broadcast of the array buf
     // MPI_Bcast(buf.data(), buf_size, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Scatter(buf.data(), 3, MPI_INT, buf, 3, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Scatter(buf.data(), 3, MPI_INT, recvbuf, 3, MPI_INT, 0, MPI_COMM_WORLD);
     /* End timing */
     double t1 = MPI_Wtime();
 
     /* Print data that was received */
-    print_buffer(buf);
+    print_buffer(recvbuf);
     if (rank == 0) {
         printf("Time elapsed: %6.8f s\n", t1 - t0);
     }
