@@ -43,13 +43,12 @@ int main(int argc, char** argv)
    }
 
    double pi = 0;
-   MPI_Reduce(&localpi, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD)
-   pi += localpi;
-   // Reduction to rank 0
-   if (0 == rank) {
-      pi *= 4.0 / n;
-      printf("Approximate pi=%18.16f (exact pi=%10.8f)\n", pi, M_PI);
-   }
+   //MPI_Reduce(&localpi, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+   MPI_Allreduce(MPI_IN_PLACE, &localpi, 1, MPI_DOUBLE, MPI_SUM,  MPI_COMM_WORLD);
+   //if (0 == rank) {
+      localpi *= 4.0 / n;
+      printf("Approximate pi=%18.16f (exact pi=%10.8f) (rank= %d) \n", localpi, M_PI, rank);
+   //}
 
    MPI_Finalize();
 }
