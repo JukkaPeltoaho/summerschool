@@ -11,6 +11,7 @@ int main(int argc, char **argv)
 {
 
   // TODO start: initialize MPI
+  MPI_Init(&argc, &argv);
 
   // TODO end
 

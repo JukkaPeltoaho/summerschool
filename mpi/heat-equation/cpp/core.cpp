@@ -14,9 +14,9 @@ void exchange(Field& field, const ParallelData parallel)
 
     // You can utilize the data() method of the Matrix class to obtain pointer
     // to element, e.g. field.temperature.data(i, j)
-
+    sbuf = field.temperature.data(1, 1);
     // Send to up, receive from down
-
+    MPI_Send(message.data(), message.size(), MPI_DOUBLE, parallel.nup, 22, MPI_COMM_WORLD);
     // Send to down, receive from up
 
 
