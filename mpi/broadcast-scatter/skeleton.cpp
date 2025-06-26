@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 
     /* Send everywhere */
     // TODO: Implement the broadcast of the array buf
+    MPI_Bcast(buf.data(rank*buf_size), buf_size, MPI_INT, 0, MPI_COMM_WORLD);
 
     /* End timing */
     double t1 = MPI_Wtime();
