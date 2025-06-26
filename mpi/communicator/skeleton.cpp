@@ -36,6 +36,10 @@ int main(int argc, char *argv[])
      *       use a single collective communication call
      *       (and maybe prepare some parameters for the call)
      */
+    MPI_Comm new_comm;
+    MPI_Comm_split(MPI_COMM_WORLD, rank / 2, rank, &new_comm);
+
+    MPI_Reduce(sendbuf, recvbuf, sendbuf.size(), MPI_INT, MPI_SUM, 0, new_comm)
 
     /* Print data that was received */
     print_buffers(recvbuf);
