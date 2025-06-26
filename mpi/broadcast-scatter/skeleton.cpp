@@ -31,7 +31,8 @@ int main(int argc, char *argv[])
     /* Send everywhere */
     // TODO: Implement the broadcast of the array buf
     // MPI_Bcast(buf.data(), buf_size, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Scatter(buf.data(), 3, MPI_INT, recvbuf, 3, MPI_INT, 0, MPI_COMM_WORLD);
+    int block_size = buf_size/size;
+    MPI_Scatter(buf.data(), block_size, MPI_INT, recvbuf.data(), block_size, MPI_INT, 0, MPI_COMM_WORLD);
     /* End timing */
     double t1 = MPI_Wtime();
 
