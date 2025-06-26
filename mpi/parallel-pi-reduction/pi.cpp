@@ -42,17 +42,13 @@ int main(int argc, char** argv)
      localpi += 1.0 / (1.0 + x*x);
    }
 
+   double pi = 0;
+   MPI_Reduce(&localpi, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD)
+   pi += localpi;
    // Reduction to rank 0
    if (0 == rank) {
-      double pi = localpi;
-      for (int i=1; i < ntasks; i++) {
-        MPI_Recv(&localpi, 1, MPI_DOUBLE, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
-        pi += localpi;
-      }
       pi *= 4.0 / n;
       printf("Approximate pi=%18.16f (exact pi=%10.8f)\n", pi, M_PI);
-   } else {
-      MPI_Send(&localpi, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
    }
 
    MPI_Finalize();
