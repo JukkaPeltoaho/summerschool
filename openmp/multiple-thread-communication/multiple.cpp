@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
     int my_id, tid_tag, mpi_rank, mpi_size;
     int provided, required=MPI_THREAD_MULTIPLE;
-    int sendbuf, recvbuf;
+    int recvbuf;
     printf("Thread support MPI_THREAD_MULTIPLE :  %d\n", MPI_THREAD_MULTIPLE);
 
     MPI_Init_thread(&argc, &argv, required, &provided);
