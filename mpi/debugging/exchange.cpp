@@ -35,11 +35,12 @@ int main(int argc, char *argv[])
     } else if (rank == 1) {
         int dest = 0;
         int src = 0;
-        int stag = 1;
-        int rtag = 2;
-        MPI_Send(message.data(), msgsize, MPI_INT, dest, stag, MPI_COMM_WORLD);
+        int stag = 2;
+        int rtag = 1;
+        
         MPI_Recv(receiveBuffer.data(), arraysize, MPI_INT, src, rtag, MPI_COMM_WORLD,
                  &status);
+        MPI_Send(message.data(), msgsize, MPI_INT, dest, stag, MPI_COMM_WORLD);
         MPI_Get_count(&status, MPI_INT, &nrecv);
         printf("Rank %i received %i elements, first %i\n", rank, nrecv, receiveBuffer[0]);
     }

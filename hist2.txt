@@ -1,0 +1,611 @@
+    1  pwd
+    2  ls -la
+    3  exit
+    4  mkdir -p /scratch/project_465000956/jpeltoah
+    5  cd /scratch/project_465000956/
+    6  whoami
+    7  cd /scratch/project_462000956
+    8  mkdir jpeltoah
+    9  ls -la
+   10  cd jpeltoah/
+   11  git clone https://github.com/JukkaPeltoaho/summerschool.git
+   12  ls -la
+   13  cd summerschool/
+   14  ls -al
+   15  vi COPYING 
+   16  git status
+   17  git add COPYING 
+   18  git commit -m "test"
+   19  git config --global user.email "jukka.peltoaho@gmail.com"
+   20  git config --global user.name "Jukka Pelto-aho"
+   21  git commit -m "test"
+   22  git push
+   23  ls -la ~/
+   24  cd ~/
+   25  pwd
+   26  ssh-keygen -t rsa -b 4096 -C "jukka.peltoaho@gmail.com"
+   27  cat .ssh/id_rsa.pub 
+   28  history
+   29  cd /scratch/project_462000956
+   30  cd /scratch/project_462000956/jpeltoah/
+   31  ls -la
+   32  cd summerschool/
+   33  git status
+   34  git push
+   35  ssh -T git@github.com
+   36  git push
+   37  eval "$(ssh-agent -s)"
+   38  ssh-add ~/.ssh/id_rsa
+   39  git push
+   40  cd ..
+   41  rm -rf summerschool/
+   42  ls -la
+   43  git clone git@github.com:JukkaPeltoaho/summerschool.git
+   44  cd summerschool/
+   45  vi COPYING 
+   46  git add COPYING 
+   47  git commit -m "test"
+   48  git push
+   49  pwd
+   50  ls -la ../..
+   51  lumi-workspaces
+   52  ls -la ../..
+   53  ls -la ../.. | wc -l
+   54  cd ..
+   55  ls -la
+   56  chown -R jpeltoah:jpeltoah .
+   57  chgrp -R jpeltoah .
+   58  ls -la
+   59  ls -la ..
+   60  chmod -R go-rwx .
+   61  ls -la
+   62  clear
+   63  module list
+   64  module spider rocm
+   65  module spider rocm/6.0.2
+   66  module spider rocm/6.0.3
+   67  module show rocm/6.0.3
+   68  exit
+   69  history
+   70  cd /scratch/project_462000956/jpeltoah/
+   71  cd summerschool/
+   72  ls -la
+   73  cd intro-to-hpc/
+   74  ls -la
+   75  module load LUMI/24.03
+   76  module load partition/C
+   77  ls
+   78  cd building-running/cpu/
+   79  make
+   80  ls
+   81  vi prog.cpp 
+   82  cat util.cpp 
+   83  cat util.cpp ls -la
+   84  ls -la
+   85  cat prog.cpp util.cpp 
+   86  cd ../
+   87  sbatch job_cpu.sh 
+   88  cd cpu/
+   89  vi prog.cpp 
+   90  make
+   91  cat prog.cpp util.cpp 
+   92  vi prog.cpp 
+   93  make
+   94  cd ..
+   95  sbatch job_cpu.sh 
+   96  squeque
+   97  squeue -me
+   98  squeue --me
+   99  cd cpu/
+  100  vi prog.cpp 
+  101  vi util.cpp 
+  102  make
+  103  cd ..
+  104  sbatch job_cpu.sh 
+  105  cd cpu/
+  106  vi util.cpp 
+  107  make
+  108  cd ..
+  109  sbatch job_cpu.sh 
+  110  ls 
+  111  ls -lart
+  112  cat example.11581196.out 
+  113  cat example.11581184.out 
+  114  cat example.11581167.out 
+  115  cat example.11581156.out 
+  116  rm example.115811*
+  117  ls -lart
+  118  cd cpu
+  119  git diff
+  120  ps
+  121  kill 110075
+  122  ps
+  123  kill -9 110075
+  124  ps
+  125  git status
+  126  git stash
+  127  make
+  128  cd ../
+  129  sbatch job_cpu.sh 
+  130  ls -la
+  131  more example.11581240.out 
+  132  git status
+  133  cat job_cpu.sh 
+  134  cd cpu/
+  135  sbatch ../job_cpu.sh 
+  136  ls 
+  137  cat example.11581255.out 
+  138  vi util.cpp 
+  139  make
+  140  sbatch ../job_cpu.sh 
+  141  cat example.11581269.out 
+  142  sbatch --nodes=2 --ntasks-per-node=4 ../job_cpu.sh
+  143  cat example.11581278.out 
+  144  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --partition=small --time=0:05:00 ../prog
+  145  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --partition=small --time=0:05:00 ./prog
+  146  module load LUMI/24.03
+  147  module load partition/G
+  148  module load rocm/6.0.3
+  149  cd ../gpu/
+  150  make
+  151  sbatch ../job_gpu.sh 
+  152  ls 
+  153  ls ..
+  154  ls 
+  155  squeue --me
+  156  squeue -j 11581330 --start
+  157  squeue --me
+  158  scancel 11581330
+  159  squeue --me
+  160  cat ../job_gpu.sh 
+  161  sbatch ../job_gpu.sh 
+  162  squeue --me
+  163  squeue -j 11581482 --start
+  164  ls 
+  165  cat example.11581482.out 
+  166  cd ../../scalability/heat-equation-3d/
+  167  make
+  168  ls
+  169  ls -la
+  170  cat ../job.sh 
+  171  sbatch ../job.sh 
+  172  ls
+  173  squeue --me
+  174  ls
+  175  cat scalability.11581630.out 
+  176  ls -lart
+  177  cat scalability.11581630.out 
+  178  sbatch --job-name=n02 --nodes=1 --ntasks-per-node=2 --gpus-per-node=2 ../job.sh
+  179  squeue --me
+  180  squeue -j 11581783 --start
+  181  squeue --me
+  182  squeue -j 11581783 --start
+  183  squeue --me
+  184  squeue -j 11581783 --start
+  185  squeue --me
+  186  ls
+  187  cat scalability.11581630.out 
+  188  ls -lart
+  189  cat n02.11581783.out 
+  190  sbatch --job-name=n04 --nodes=1 --ntasks-per-node=4 --gpus-per-node=4 ../job.sh
+  191  squeue --me
+  192  squeue -j 11581961 --start
+  193  squeue --me
+  194  scancel 11581961 
+  195  sbatch --job-name=n04 --nodes=1 --ntasks-per-node=4 --gpus-per-node=4 ../job.sh
+  196  squeue --me
+  197  squeue -j 11582074 --start
+  198  squeue --me
+  199  squeue -j 11582074 --start
+  200  history | grep start
+  201  sacct 11581961
+  202  sacct 11581783
+  203  sacct
+  204  sacct --help
+  205  sacct -j 11581783
+  206  squeue -j 11582074 --start
+  207  sacct
+  208  ls -lart
+  209  squeue --me
+  210  squeue -j 11582074 --start
+  211  sacct
+  212  squeue -j 11582074 --start
+  213  sacct
+  214  squeue 
+  215  squeue -j 11582074 --start
+  216  exit
+  217  squeue -j 11582074 --start
+  218  squeue --me
+  219  cd /scratch/project_462000956/jpeltoah/
+  220  cd summerschool/intro-to-hpc/scalability/
+  221  ls
+  222  cd heat-equation-3d/
+  223  ls
+  224  cat n04.11582074.out 
+  225  sacct
+  226  sbatch --job-name=n08 --nodes=1 --ntasks-per-node=8 --gpus-per-node=8 ../job.sh
+  227  sbatch --job-name=n16 --nodes=2 --ntasks-per-node=8 --gpus-per-node=8 ../job.sh
+  228  squeue --me
+  229  exit
+  230  cd /scratch/project_462000956/jpeltoah/
+  231  cd summerschool/intro-to-hpc/scalability/
+  232  ls
+  233  cd heat-equation-3d/
+  234  ls
+  235  cat n04.11582074.out 
+  236  cat n08.11585392.out 
+  237  cat n16.11585393.out 
+  238  cd ../../
+  239  cd ../mpi/
+  240  ls
+  241  cd demos/
+  242  ls
+  243  cat hello.c 
+  244  mpicc hello.c 
+  245  ls -lart
+  246  cc -o hello hello.c 
+  247  ls -rt
+  248  ls -lart
+  249  ./hello 
+  250  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --partition=small --time=0:05:00 ./hello
+  251  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  252  rm a.out
+  253  cd ../hello-world/
+  254  ls
+  255  cat hello.c
+  256  vi hello.c
+  257  cc -o hello hello.c
+  258  ls
+  259  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  260  srun --account=project_462000956 --nodes=1 --ntasks-per-node=5 --partition=small --time=0:05:00 ./hello
+  261  vi hello.c
+  262  cc -o hello hello.c
+  263  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  264  srun --account=project_462000956 --nodes=1 --ntasks-per-node=0 --partition=small --time=0:05:00 ./hello
+  265  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./hello
+  266  srun --account=project_462000956 --nodes=1 --ntasks-per-node=42 --partition=small --time=0:05:00 ./hello
+  267  srun --account=project_462000956 --nodes=1 --ntasks-per-node=64 --partition=small --time=0:05:00 ./hello
+  268  man MPI_Get_processor_name
+  269  vi hello.c
+  270  cc -o hello hello.c
+  271  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./hello
+  272  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --partition=small --time=0:05:00 ./hello
+  273  vi hello.c
+  274  cc -o hello hello.c
+  275  srun --account=project_462000956 --nodes=2 --ntasks-per-node=2 --partition=small --time=0:05:00 ./hello
+  276  cat hello.c
+  277  history 
+  278  history > ../../hist1.txt
+  279  git status
+  280  git add ../../hist1.txt 
+  281  git add ../../intro-to-hpc/building-running/cpu/util.cpp hello.c 
+  282  git add ../../intro-to-hpc/building-running/cpu/example.115812*
+  283  git status
+  284  git add ../../intro-to-hpc/building-running/gpu/example.11581482.out 
+  285  git add ../../intro-to-hpc/scalability/heat-equation-3d/scalability.11581630.out 
+  286  git add ../../intro-to-hpc/scalability/heat-equation-3d/n*
+  287  git status
+  288  git commit -m "dev1"
+  289  git push
+  290  git pull
+  291  git config pull.rebase false
+  292  git pull
+  293  git status
+  294  git push
+  295  git status
+  296  git pull
+  297  cd ../
+  298  ls
+  299  cd message-exchange/
+  300  ls
+  301  vi exchange.c
+  302  cc -o exchange exchange.c
+  303  vi exchange.c
+  304  cc -o exchange exchange.c
+  305  ls -lart
+  306  vi exchange.c
+  307  cc -o exchange exchange.c
+  308  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./exchange
+  309  vi exchange.c
+  310  cc -o exchange exchange.c
+  311  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./exchange
+  312  vi exchange.c
+  313  cc -o exchange exchange.c
+  314  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./exchange
+  315  cd ../parallel-pi-two-procs/
+  316  ls
+  317  cat pi.cpp 
+  318  cat ../message-exchange/exchange.c
+  319  cat ../message-exchange/exchange.cpp 
+  320  vi pi.cpp 
+  321  CC -o pi pi.cpp 
+  322  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --partition=small --time=0:05:00 ./pi
+  323  vi pi.cpp 
+  324  CC -o pi pi.cpp 
+  325  vi pi.cpp 
+  326  exit
+  327  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/parallel-pi-two-procs/
+  328  vi pi.cpp 
+  329  CC -o pi pi.cpp 
+  330  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./pi
+  331  cat ../message-exchange/exchange.c
+  332  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/message-length/
+  333  ls
+  334  vi message-length.cpp 
+  335  git pull
+  336  CC -o message-length message-length.cpp 
+  337  vi message-length.cpp 
+  338  CC -o message-length message-length.cpp 
+  339  vi message-length.cpp 
+  340  CC -o message-length message-length.cpp 
+  341  vi message-length.cpp 
+  342  CC -o message-length message-length.cpp 
+  343  vi message-length.cpp 
+  344  CC -o message-length message-length.cpp 
+  345  vi message-length.cpp 
+  346  CC -o message-length message-length.cpp 
+  347  vi message-length.cpp 
+  348  CC -o message-length message-length.cpp 
+  349  ls -lart
+  350  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./message-length
+  351  git status
+  352  git add ../message-exchange/exchange.c message-length.cpp ../parallel-pi-two-procs/pi.cpp 
+  353  git commit -m "dev2"
+  354  git push
+  355  git status
+  356  cd ..
+  357  cd message-chain
+  358  ls
+  359  git status
+  360  exit
+  361  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/message-chain
+  362  ls -lart
+  363  cat chain.cpp 
+  364  git pull
+  365  CC -o chain chain.cpp 
+  366  vi chain.cpp 
+  367  CC -o chain chain.cpp 
+  368  vi chain.cpp 
+  369  CC -o chain chain.cpp 
+  370  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./chain
+  371  vi chain.cpp 
+  372  CC -o chain chain.cpp 
+  373  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./chain
+  374  vi chain.cpp 
+  375  CC -o chain chain.cpp 
+  376  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./chain
+  377  vi chain.cpp 
+  378  CC -o chain chain.cpp 
+  379  vi chain.cpp 
+  380  CC -o chain chain.cpp 
+  381  vi chain.cpp 
+  382  CC -o chain chain.cpp 
+  383  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./chain
+  384  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./chain
+  385  vi chain.cpp 
+  386  CC -o chain chain.cpp 
+  387  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./chain
+  388  vi chain.cpp 
+  389  CC -o chain chain.cpp 
+  390  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./chain
+  391  vi chain.cpp 
+  392  CC -o chain chain.cpp 
+  393  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./chain
+  394  git status
+  395  git add chain.cpp 
+  396  git commit -m "dev3"
+  397  git push
+  398  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./chain
+  399  srun --account=project_462000956 --nodes=1 --ntasks-per-node=8 --partition=small --time=0:05:00 ./chain
+  400  srun --account=project_462000956 --nodes=1 --ntasks-per-node=16 --partition=small --time=0:05:00 ./chain
+  401  exit
+  402  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/message-chain
+  403  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./chain
+  404  git status
+  405  git pull
+  406  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./chain
+  407  sinfo -s
+  408  sinfo -e -o "%16P %4a %8s %.11l %11A %6z %.9m %30G %40N"
+  409  cd ../heat-equation/
+  410  git pull
+  411  ls -la
+  412  cd cpp/
+  413  ls -la
+  414  make
+  415  vi main.cpp 
+  416  vi heat.
+  417  vi heat.cpp 
+  418  vi heat.hpp 
+  419  make
+  420  vi core.cpp 
+  421  make
+  422  vi core.cpp 
+  423  make
+  424  git status
+  425  git add core.cpp heat.hpp 
+  426  git commit -m "dev4"
+  427  git push 
+  428  git pull
+  429  make
+  430  git pull
+  431  make
+  432  ls -lart
+  433  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./heat_mpi 
+  434  git pull
+  435  make
+  436  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./heat_mpi 
+  437  git status
+  438  cd ../../broadcast-scatter/
+  439  ls
+  440  CC -o skeleton skeleton.cpp 
+  441  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  442  CC -o skeleton skeleton.cpp 
+  443  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  444  git pull
+  445  CC -o skeleton skeleton.cpp 
+  446  vi skeleton.cpp 
+  447  CC -o skeleton skeleton.cpp 
+  448  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  449  vi skeleton.cpp 
+  450  CC -o skeleton skeleton.cpp 
+  451  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  452  vi skeleton.cpp 
+  453  CC -o skeleton skeleton.cpp 
+  454  vi skeleton.cpp 
+  455  CC -o skeleton skeleton.cpp 
+  456  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  457  vi skeleton.cpp 
+  458  CC -o skeleton skeleton.cpp 
+  459  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  460  vi skeleton.cpp 
+  461  CC -o skeleton skeleton.cpp 
+  462  exit
+  463  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/broadcast-scatter/
+  464  vi skeleton.cpp 
+  465  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/
+  466  git status
+  467  git add broadcast-scatter/skeleton.cpp 
+  468  git commit -m "dev5"
+  469  git push
+  470  cd parallel-pi-reduction/
+  471  ls
+  472  cp ../parallel-pi-general/solution/pi.cpp .
+  473  git status
+  474  git add pi.cpp 
+  475  git commit -m "dev6"
+  476  git push
+  477  CC -o pi pi.cpp 
+  478  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  479  git pull
+  480  CC -o pi pi.cpp 
+  481  vi pi.cpp 
+  482  CC -o pi pi.cpp 
+  483  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  484  cat pi.cpp 
+  485  vi pi.cpp 
+  486  CC -o pi pi.cpp 
+  487  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  488  vi pi.cpp 
+  489  CC -o pi pi.cpp 
+  490  srun --account=project_462000956 --nodes=1 --ntasks-per-node=3 --partition=small --time=0:05:00 ./pi
+  491  srun --account=project_462000956 --nodes=1 --ntasks-per-node=24 --partition=small --time=0:05:00 ./pi
+  492  vi pi.cpp 
+  493  CC -o pi pi.cpp 
+  494  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  495  vi pi.cpp 
+  496  CC -o pi pi.cpp 
+  497  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  498  cd ../parallel-pi-general/
+  499  cd solution/
+  500  ls
+  501  CC -o pi pi.cpp 
+  502  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  503  cd ../../
+  504  cd parallel-pi-reduction/
+  505  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  506  vi pi.cpp 
+  507  CC -o pi pi.cpp 
+  508  vi pi.cpp 
+  509  CC -o pi pi.cpp 
+  510  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  511  vi pi.cpp 
+  512  CC -o pi pi.cpp 
+  513  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  514  vi pi.cpp 
+  515  CC -o pi pi.cpp 
+  516  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  517  vi pi.cpp 
+  518  CC -o pi pi.cpp 
+  519  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+  520  git status
+  521  git add pi.cpp 
+  522  git commit -m "dev7"
+  523  git push
+  524  cd ../broadcast-scatter/
+  525  ls
+  526  CC -o skeleton skeleton.cpp 
+  527  git status
+  528  git pull
+  529  CC -o skeleton skeleton.cpp 
+  530  vi skeleton.cpp 
+  531  CC -o skeleton skeleton.cpp 
+  532  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  533  vi skeleton.cpp 
+  534  CC -o skeleton skeleton.cpp 
+  535  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  536  git status 
+  537  cat skeleton.cpp 
+  538  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  539  git status
+  540  git add skeleton.cpp 
+  541  git commit -m "dev8"
+  542  git push
+  543  exit
+  544  ddt srun ./exchange
+  545  cat exchange.cpp 
+  546  history
+  547  export
+  548  export | grep PATH
+  549  export | grep SLURM
+  550  ddt srun ./collective
+  551  history
+  552  exit
+  553  ddt srun ./collective
+  554  exit
+  555  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/debugging/
+  556  export PATH=/appl/lumi/SW/system/EB/ARMForge/22.0.1/bin/:$PATH
+  557  export SLURM_OVERLAP=1
+  558  salloc -A project_462000956 --nodes=1 --ntasks-per-node=2 --time=00:30:00 --partition=debug 
+  559  salloc -A project_462000956 --nodes=1 --ntasks-per-node=4 --time=00:30:00 --partition=debug 
+  560  exit
+  561  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/
+  562  cd communicator/
+  563  ls
+  564  CC -o skeleton skeleton.cpp 
+  565  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  566  vi skeleton.cpp 
+  567  CC -o skeleton skeleton.cpp 
+  568  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  569  vi skeleton.cpp 
+  570  git status
+  571  git diff
+  572  git stash
+  573  git pull
+  574  CC -o skeleton skeleton.cpp 
+  575  vi skeleton.cpp 
+  576  CC -o skeleton skeleton.cpp 
+  577  vi skeleton.cpp 
+  578  CC -o skeleton skeleton.cpp 
+  579  vi skeleton.cpp 
+  580  CC -o skeleton skeleton.cpp 
+  581  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  582  git status
+  583  git add skeleton.cpp 
+  584  git commit -m "dev9"
+  585  git push
+  586  cat skeleton.cpp 
+  587  cd ../../
+  588  cd mpi/message-chain
+  589  ls -lart
+  590  CC -o chain chain.cpp 
+  591  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./chain
+  592  git status
+  593  cd ../debugging/
+  594  CC -g -O0 -o exchange.cpp 
+  595  CC -g -O0 -o exchange exchange.cpp 
+  596  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./exchange
+  597  export PATH=/appl/lumi/SW/system/EB/ARMForge/22.0.1/bin:$PATH
+  598  CC -g -O0 -o exchange exchange.cpp 
+  599  CC -g -O0 -o collective collective.cpp 
+  600  exit
+  601  cd /scratch/project_462000956/jpeltoah/summerschool/openmp/omp-hello/
+  602  ls -la
+  603  CC -fopenmp -o hello hello.cpp 
+  604  ls
+  605  CC  -o hello hello.cpp 
+  606  ./hello 
+  607  CC -fopenmp -o hello hello.cpp 
+  608  OMP_NUM_THREADS=3 ./hello 
+  609  cat hello.cpp 
+  610  OMP_NUM_THREADS=12 ./hello 
+  611  history > ../../hist2.txt 
