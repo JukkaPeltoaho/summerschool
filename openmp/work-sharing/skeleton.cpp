@@ -7,6 +7,7 @@ int main(void)
 {
     double vecA[NX], vecB[NX], vecC[NX];
 
+    int omp_rank;
     /* Initialization of the vectors */
     for (int i = 0; i < NX; i++) {
         vecA[i] = 1.0 / ((double)(NX - i));
@@ -17,6 +18,20 @@ int main(void)
      *   Implement here a parallelized version of vector addition,
      *   vecC = vecA + vecB
      */
+
+    #pragma omp parallel
+    {
+    #ifdef _OPENMP
+        omp_rank = omp_get_num_threads();
+    #else
+        omp_rank = 0;
+    #endif
+    }
+
+    printf("Hello world! by thread %d\n",
+           omp_rank);
+
+
     #pragma omp parallel for
     {
         for (int i=0; i < NX; i++)
