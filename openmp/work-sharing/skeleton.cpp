@@ -19,7 +19,7 @@ int main(void)
      */
     #pragma omp parallel for
     {
-        for (i=0; i < NX; i++)
+        for (int i=0; i < NX; i++)
             vecC[i] = vecA[i] + vecB[i];
     }
 
