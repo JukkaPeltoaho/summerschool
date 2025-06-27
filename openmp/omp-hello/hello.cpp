@@ -8,8 +8,9 @@ int main()
 	int omp_rank, num_threads;
 #pragma omp parallel
     {
-		omp_rank = omp_get_thread_num();
-		num_threads = omp_get_num_threads();
+	#pragma omp single
+	num_threads = omp_get_num_threads();
+	omp_rank = omp_get_thread_num();
         printf("X: %d\n", omp_rank);
     }
 	printf("Threadnum: %d\n", num_threads);
