@@ -24,14 +24,10 @@ void single_writer(const std::vector<int>& localData, const char* filename) {
     std::vector<int> recvbuf(numElements, -1);
     // You can assume that 'localData' has same length in all MPI processes:
     const size_t numElementsPerRank = localData.size();
-    MPI_Gather(localData, numElementsPerRank, MPI_INT, recvbuf, numElementsPerRank, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Gather(localData.data(), numElementsPerRank, MPI_INT, recvbuf.data(), numElementsPerRank, MPI_INT, 0, MPI_COMM_WORLD);
 
-    FILE* file = std::fopen("output.txt", "w");
-
-    for (int val : recvbuf) {
-        std::fprintf(file, "%d", val);
-    }
-    std::fprintf(file, "\n");
+    FILE* file = std::fopen(filename, "wb");
+    std::fwrite(recvbuf.data(), sizeof(int), recvbuf.size(), file);
     std::fclose(file);
 
 }
