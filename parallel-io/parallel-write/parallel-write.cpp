@@ -34,7 +34,26 @@ void single_writer(const std::vector<int>& localData, const char* filename) {
 
 void collective_write(const std::vector<int>& localData, const char* filename) {
     // TODO: Like single_writer(), but implement a parallel write using MPI_File_write_at_all()
+    const size_t numElementsPerRank = localData.size();
+    int ntasks;
+    MPI_Comm_size(MPI_COMM_WORLD, &ntasks);
+    MPI_Offset fileSize = ntasks * numElementsPerRank * sizeof(int);
 
+    MPI_File_set_size(file, fileSize);
+
+    // Use the MPI rank of this process to calculate write offset
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_File file;
+
+    MPI_File_open(MPI_COMM_WORLD, filename, MPI_MODE_CREATE | MPI_MODE_WRONLY, MPI_INFO_NULL, &file);
+
+    // Offset is always given in bytes
+    MPI_Offset writeOffset = static_cast<MPI_Offset>(rank * numElementsPerRank * sizeof(int));
+
+    MPI_File_write_at_all(file, writeOffset, &localData, numElementsPerRank, MPI_INT, MPI_STATUS_IGNORE);
+
+    MPI_File_close(&file);
 }
 
 int main(int argc, char **argv) {
