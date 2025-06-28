@@ -21,8 +21,18 @@ void single_writer(const std::vector<int>& localData, const char* filename) {
     // TODO: Gather contents of 'localData' to one MPI process and write it all to file 'filename' ("spokesperson" strategy).
     // The output should be ordered such that data from rank 0 comes first, then rank 1, and so on
 
+    std::vector<int> recvbuf(numElements, -1);
     // You can assume that 'localData' has same length in all MPI processes:
     const size_t numElementsPerRank = localData.size();
+    MPI_Gather(localData, numElementsPerRank, MPI_INT, recvbuf, numElementsPerRank, MPI_INT, 0, MPI_COMM_WORLD);
+
+    FILE* file = std::fopen("output.txt", "w");
+
+    for (int val : recvbuf) {
+        std::fprintf(file, "%d", val);
+    }
+    std::fprintf(file, "\n");
+    std::fclose(file);
 
 }
 
