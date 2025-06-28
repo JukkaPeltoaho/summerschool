@@ -26,9 +26,11 @@ void single_writer(const std::vector<int>& localData, const char* filename) {
     const size_t numElementsPerRank = localData.size();
     MPI_Gather(localData.data(), numElementsPerRank, MPI_INT, recvbuf.data(), numElementsPerRank, MPI_INT, 0, MPI_COMM_WORLD);
 
-    FILE* file = std::fopen(filename, "wb");
-    std::fwrite(recvbuf.data(), sizeof(int), recvbuf.size(), file);
-    std::fclose(file);
+    if (rank == 0) {
+        FILE* file = std::fopen(filename, "wb");
+        std::fwrite(recvbuf.data(), sizeof(int), recvbuf.size(), file);
+        std::fclose(file);
+    }
 
 }
 
@@ -88,7 +90,14 @@ int main(int argc, char **argv) {
     // ########## "Spokesperson" write
     std::string filename = "single_writer.dat";
 
+    double startTime = MPI_Wtime();
     single_writer(localData, filename.c_str());
+    double endTime = MPI_Wtime();
+
+    double elapsedTime = endTime - startTime;
+    if (rank == 0) {
+        printf("i = %d : Time taken for 'single_writer': %g seconds\n", i, elapsedTime);
+    }
 
     if (rank == 0 && doDebugPrint) {
         printf("[%s] file contents:\n", filename.c_str());
@@ -98,7 +107,14 @@ int main(int argc, char **argv) {
     // ########## Collective write
     filename = "collective_write.dat";
 
+    startTime = MPI_Wtime();
     collective_write(localData, filename.c_str());
+    endTime = MPI_Wtime();
+
+    elapsedTime = endTime - startTime;
+    if (rank == 0) {
+        printf("i = %d : Time taken for 'collective_write': %g seconds\n", i, elapsedTime);
+    }
 
     if (rank == 0 && doDebugPrint) {
         printf("[%s] file contents:\n", filename.c_str());
