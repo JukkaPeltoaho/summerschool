@@ -11,7 +11,7 @@ __global__ void fill(float *arr, float a, size_t num_values) {
     // slides for help
     const int tid = threadIdx.x + blockIdx.x * blockDim.x;
     const int stride = blockDim.x * gridDim.x;
-    for (int i = tid; i < n; i += stride) {
+    for (int i = tid; i < num_values; i += stride) {
         arr[i] += a;
     }
 }
@@ -37,7 +37,7 @@ int main() {
     HIP_ERRCHK(hipMemcpy(h_arr, d_arr, num_bytes, hipMemcpyDefault));
 
     // TODO: Free device memory
-    HIP_ERRCHK(hipFree(num_bytes));
+    HIP_ERRCHK(hipFree(d_arr));
 
     printf("Some values copied from the GPU: %f, %f, %f, %f\n", h_arr[0],
            h_arr[1], h_arr[num_values - 2], h_arr[num_values - 1]);
