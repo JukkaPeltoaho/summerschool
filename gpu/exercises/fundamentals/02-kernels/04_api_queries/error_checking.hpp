@@ -94,10 +94,40 @@ void launch_kernel(const char *kernel_name, const char *file, int32_t line,
                      kernel_name, file, line);
         exit(EXIT_FAILURE);
     }
+    const int max_grid_y = get_device_attribute(
+               hipDeviceAttribute_t::hipDeviceAttributeMaxGridDimY);
+    if (blocks.y <= 0 || max_grid_y < blocks.y) {
+        std::fprintf(stderr,
+                     "Block request wrong: %d, should be between 1 - %d, for kernel "
+                     "\"%s\" in %s on line %d\n",
+                     blocks.y, max_grid_y,
+                     kernel_name, file, line);
+        exit(EXIT_FAILURE);
+    }
+    const int max_grid_z = get_device_attribute(
+               hipDeviceAttribute_t::hipDeviceAttributeMaxGridDimZ);
+    if (blocks.z <= 0 || max_grid_z < blocks.z) {
+        std::fprintf(stderr,
+                     "Block request wrong: %d, should be between 1 - %d, for kernel "
+                     "\"%s\" in %s on line %d\n",
+                     blocks.z, max_grid_z,
+                     kernel_name, file, line);
+        exit(EXIT_FAILURE);
+    }
     // TODO: Finally make sure the total number of threads per block is less
     // than the maximum: i.e.
     // hipDeviceAttribute_t::hipDeviceAttributeMaxThreadsPerBlock >=
     // threads.x * threads.y * threads.z
+    const int max_threads = get_device_attribute(
+               hipDeviceAttribute_t::hipDeviceAttributeMaxThreadsPerBlock);
+    const int total_threads = threads.x * threads.y * threads.z;
+    if (total_threads <= 0 || max_threads < total_threads) {
+        std::fprintf(stderr,
+                     "Total thread count wrong: %d, should be between 1 - %d, for kernel "
+                     "\"%s\" in %s on line %d\n",
+                     total_threads, max_threads,
+                     kernel_name, file, line);
+        exit(EXIT_FAILURE);
 
     // Reset the error variable to success.
     result = hipGetLastError();
