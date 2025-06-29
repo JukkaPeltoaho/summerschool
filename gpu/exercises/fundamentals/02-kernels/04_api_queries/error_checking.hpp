@@ -51,6 +51,12 @@ void launch_kernel(const char *kernel_name, const char *file, int32_t line,
         // The given threads.x is not within the correct limits.
         // Print error message and exit.
         // See above how it's done for the shared memory check.
+        std::fprintf(stderr,
+                     "Thread request wrong: %d, should be between 1 - %d, for kernel "
+                     "\"%s\" in %s on line %d\n",
+                     threads.x, max_threads_x,
+                     kernel_name, file, line);
+        exit(EXIT_FAILURE);
     }
     // TODO: Do the same for y and z dimensions.
 
