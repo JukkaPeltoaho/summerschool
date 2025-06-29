@@ -13,6 +13,8 @@ void launch_kernel(const char *kernel_name, const char *file, int32_t line,
                    void (*kernel)(Args...), dim3 blocks, dim3 threads,
                    size_t num_bytes_shared_mem, hipStream_t stream,
                    Args... args) {
+
+#if !NDEBUG
     int32_t device = 0;
     [[maybe_unused]] auto result = hipGetDevice(&device);
 
@@ -133,8 +135,12 @@ void launch_kernel(const char *kernel_name, const char *file, int32_t line,
     // Reset the error variable to success.
     result = hipGetLastError();
 
+#endif
+
+
     kernel<<<blocks, threads, num_bytes_shared_mem, stream>>>(args...);
 
+#if !NDEBUG
     result = hipGetLastError();
     if (result != hipSuccess) {
         printf("Error with kernel \"%s\" in %s at line %d\n%s: %s\n",
@@ -142,4 +148,6 @@ void launch_kernel(const char *kernel_name, const char *file, int32_t line,
                hipGetErrorString(result));
         exit(EXIT_FAILURE);
     }
+#endif
+
 }
