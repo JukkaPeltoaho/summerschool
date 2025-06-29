@@ -29,15 +29,15 @@ int main(int argc, char **argv) {
     HIP_ERRCHK(hipGetDeviceCount(&count));
 
     int device = 0;
-    HIP_ERRCHK(hipGetDevice(&device););
+    HIP_ERRCHK(hipGetDevice(&device));
 
 
-    HIP_ERRCHK(hipSetDevice(2));
+    HIP_ERRCHK(hipSetDevice(0));
 
     void *ptr = nullptr;
-    HIP_ERRCHK(hipMalloc(nullptr, 99999999999));
+    HIP_ERRCHK(hipMalloc(&ptr, 9999));
 
-    HIP_ERRCHK(hipMemset(nullptr, 0, 8));
+    HIP_ERRCHK(hipMemset(ptr, 0, 8));
 
     HIP_ERRCHK(hipFree(ptr));
 
