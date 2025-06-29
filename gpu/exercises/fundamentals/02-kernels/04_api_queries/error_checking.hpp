@@ -128,6 +128,7 @@ void launch_kernel(const char *kernel_name, const char *file, int32_t line,
                      total_threads, max_threads,
                      kernel_name, file, line);
         exit(EXIT_FAILURE);
+    }
 
     // Reset the error variable to success.
     result = hipGetLastError();
