@@ -6,7 +6,7 @@
 
 
 // How many integers to write, total from all MPI processes
-static constexpr size_t numElements = 32;
+static constexpr size_t numElements = 104857600;
 
 /* Enables or disables debug printing of file contents. Printing is not practical for large files,
 so we enable/disable this based on 'numElements'. */
@@ -26,6 +26,9 @@ void single_writer(const std::vector<int>& localData, const char* filename) {
     const size_t numElementsPerRank = localData.size();
     MPI_Gather(localData.data(), numElementsPerRank, MPI_INT, recvbuf.data(), numElementsPerRank, MPI_INT, 0, MPI_COMM_WORLD);
 
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
     if (rank == 0) {
         FILE* file = std::fopen(filename, "wb");
         std::fwrite(recvbuf.data(), sizeof(int), recvbuf.size(), file);
@@ -41,7 +44,6 @@ void collective_write(const std::vector<int>& localData, const char* filename) {
     MPI_Comm_size(MPI_COMM_WORLD, &ntasks);
     MPI_Offset fileSize = ntasks * numElementsPerRank * sizeof(int);
 
-    MPI_File_set_size(file, fileSize);
 
     // Use the MPI rank of this process to calculate write offset
     int rank;
@@ -49,11 +51,11 @@ void collective_write(const std::vector<int>& localData, const char* filename) {
     MPI_File file;
 
     MPI_File_open(MPI_COMM_WORLD, filename, MPI_MODE_CREATE | MPI_MODE_WRONLY, MPI_INFO_NULL, &file);
-
+    MPI_File_set_size(file, fileSize);
     // Offset is always given in bytes
     MPI_Offset writeOffset = static_cast<MPI_Offset>(rank * numElementsPerRank * sizeof(int));
 
-    MPI_File_write_at_all(file, writeOffset, &localData, numElementsPerRank, MPI_INT, MPI_STATUS_IGNORE);
+    MPI_File_write_at_all(file, writeOffset, localData.data(), numElementsPerRank, MPI_INT, MPI_STATUS_IGNORE);
 
     MPI_File_close(&file);
 }
@@ -96,7 +98,7 @@ int main(int argc, char **argv) {
 
     double elapsedTime = endTime - startTime;
     if (rank == 0) {
-        printf("i = %d : Time taken for 'single_writer': %g seconds\n", i, elapsedTime);
+        printf("Time taken for 'single_writer': %g seconds\n", elapsedTime);
     }
 
     if (rank == 0 && doDebugPrint) {
@@ -113,7 +115,7 @@ int main(int argc, char **argv) {
 
     elapsedTime = endTime - startTime;
     if (rank == 0) {
-        printf("i = %d : Time taken for 'collective_write': %g seconds\n", i, elapsedTime);
+        printf("Time taken for 'collective_write': %g seconds\n", elapsedTime);
     }
 
     if (rank == 0 && doDebugPrint) {
