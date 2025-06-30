@@ -43,10 +43,10 @@ In this exercise you will inspect how well the GPU is able to coalesce the
 memory requests using the `rocprof` profiler.
 
 - How many L2 read requests (64 B and 32 B combined) are issued?
-  - 809 210 836
+  - 809 210 836 TCP_TCC_READ_REQ_sum
 - How many device global memory read requests (64 B and 32 B combined) are
   issued?
-  - 402 101 779
+  - 402 101 779 TCC_EA_RDREQ_sum  ????
 - The number of L2 read requests drop when the stride is around 4096. Why?
     *Hint*: Print out the values of `index` for some block in a 16x16 matrix.
     Are some of those indices adjacent within a warp?
