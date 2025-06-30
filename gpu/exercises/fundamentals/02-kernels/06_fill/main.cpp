@@ -27,10 +27,8 @@ int main() {
     HIP_ERRCHK(hipMalloc(&d_arr, num_bytes));
 
     // TODO: Define grid dimensions + launch the device kernel
-
-	const int threads = 1024;
-    int blocks = num_values / threads;
-	blocks += blocks * threads < num_values ? 1 : 0;
+    int threads = 32;
+    int blocks = 8;
     LAUNCH_KERNEL(fill, blocks, threads, 0, 0, d_arr, a, num_values);
 
     float *h_arr = static_cast<float *>(std::malloc(num_bytes));
