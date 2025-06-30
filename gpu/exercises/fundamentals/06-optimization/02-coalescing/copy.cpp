@@ -17,6 +17,10 @@ __global__ void copy_kernel(float *in, float *out, size_t width, size_t height, 
   size_t index = (y_index * width + stride*x_index) % (width*height);
   size_t index_in = (y_index * width + stride*x_index) % (width*height);
 
+  if(blockIdx.x = 10 ) {
+    printf("blockIdx.x = 10, index = %d \n", index);
+  }
+
   out[index] = in[index_in];
 }
 
