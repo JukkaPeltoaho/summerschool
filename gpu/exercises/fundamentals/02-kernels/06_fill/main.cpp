@@ -12,7 +12,7 @@ __global__ void fill(float *arr, float a, size_t num_values) {
     const int tid = threadIdx.x + blockIdx.x * blockDim.x;
     const int stride = blockDim.x * gridDim.x;
     for (int i = tid; i < num_values; i += stride) {
-        arr[i] += a;
+        arr[i] = a;
     }
 }
 
