@@ -30,30 +30,37 @@ int main() {
   b = (float*) malloc(N_bytes);
   c = (float*) malloc(N_bytes);
 
+  hipStream_t stream_a;
+  hipStream_t stream_b;
+  hipStream_t stream_c;
+  HIP_ERRCHK(hipStreamCreate(&stream_a));
+  HIP_ERRCHK(hipStreamCreate(&stream_b));
+  HIP_ERRCHK(hipStreamCreate(&stream_c));
+
   // Device allocations
-  HIP_ERRCHK(hipMalloc((void**)&d_a, N_bytes));
-  HIP_ERRCHK(hipMalloc((void**)&d_b, N_bytes));
-  HIP_ERRCHK(hipMalloc((void**)&d_c, N_bytes));
-  
+  HIP_ERRCHK(hipMallocAsync((void**)&d_a, N_bytes, stream_a));
+  HIP_ERRCHK(hipMallocAsync((void**)&d_b, N_bytes, stream_b));
+  HIP_ERRCHK(hipMallocAsync((void**)&d_c, N_bytes, stream_c));
+
   // warmup
   kernel_c<<<gridsize, blocksize>>>(d_a, N);
-  HIP_ERRCHK(hipMemcpy(a, d_a, N_bytes/100, hipMemcpyDefault));
+  HIP_ERRCHK(hipMemcpy(a, d_a, N_bytes/100, hipMemcpyDefault, stream_a));
   HIP_ERRCHK(hipDeviceSynchronize());
 
   // Execute kernels in sequence
-  kernel_a<<<gridsize, blocksize,0,0>>>(d_a, N);
+  kernel_a<<<gridsize, blocksize,0,stream_a>>>(d_a, N);
   HIP_ERRCHK(hipGetLastError());
 
-  kernel_b<<<gridsize, blocksize,0,0>>>(d_b, N);
+  kernel_b<<<gridsize, blocksize,0,stream_b>>>(d_b, N);
   HIP_ERRCHK(hipGetLastError());
 
-  kernel_c<<<gridsize, blocksize,0,0>>>(d_c, N);
+  kernel_c<<<gridsize, blocksize,0,stream_c>>>(d_c, N);
   HIP_ERRCHK(hipGetLastError());
 
   // Copy results back
-  HIP_ERRCHK(hipMemcpy(a, d_a, N_bytes, hipMemcpyDefault));
-  HIP_ERRCHK(hipMemcpy(b, d_b, N_bytes, hipMemcpyDefault));
-  HIP_ERRCHK(hipMemcpy(c, d_c, N_bytes, hipMemcpyDefault));
+  HIP_ERRCHK(hipMemcpyAsync(a, d_a, N_bytes, hipMemcpyDefault, stream_a));
+  HIP_ERRCHK(hipMemcpyAsync(b, d_b, N_bytes, hipMemcpyDefault, stream_b));
+  HIP_ERRCHK(hipMemcpyAsync(c, d_c, N_bytes, hipMemcpyDefault, stream_));
 
   for (int i = 0; i < 20; ++i) printf("%f ", a[i]);
   printf("\n");
@@ -70,5 +77,7 @@ int main() {
   free(a);
   free(b);
   free(c);
-
+  HIP_ERRCHK(hipStreamDestroy(stream_a));
+  HIP_ERRCHK(hipStreamDestroy(stream_b));
+  HIP_ERRCHK(hipStreamDestroy(stream_c));
 }
