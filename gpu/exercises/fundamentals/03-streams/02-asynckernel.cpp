@@ -60,7 +60,8 @@ int main() {
   // Copy results back
   HIP_ERRCHK(hipMemcpyAsync(a, d_a, N_bytes, hipMemcpyDefault, stream_a));
   HIP_ERRCHK(hipMemcpyAsync(b, d_b, N_bytes, hipMemcpyDefault, stream_b));
-  HIP_ERRCHK(hipMemcpyAsync(c, d_c, N_bytes, hipMemcpyDefault, stream_c));
+  HIP_ERRCHK(hipMemcpy(c, d_c, N_bytes, hipMemcpyDefault));
+  // Viimeinen kutsu ei async == erillinen syncronize kutsu
 
   for (int i = 0; i < 20; ++i) printf("%f ", a[i]);
   printf("\n");
