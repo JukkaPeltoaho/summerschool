@@ -44,7 +44,7 @@ int main() {
 
   // warmup
   kernel_c<<<gridsize, blocksize>>>(d_a, N);
-  HIP_ERRCHK(hipMemcpy(a, d_a, N_bytes/100, hipMemcpyDefault, stream_a));
+  HIP_ERRCHK(hipMemcpyAsync(a, d_a, N_bytes/100, hipMemcpyDefault, stream_a));
   HIP_ERRCHK(hipDeviceSynchronize());
 
   // Execute kernels in sequence
@@ -60,7 +60,7 @@ int main() {
   // Copy results back
   HIP_ERRCHK(hipMemcpyAsync(a, d_a, N_bytes, hipMemcpyDefault, stream_a));
   HIP_ERRCHK(hipMemcpyAsync(b, d_b, N_bytes, hipMemcpyDefault, stream_b));
-  HIP_ERRCHK(hipMemcpyAsync(c, d_c, N_bytes, hipMemcpyDefault, stream_));
+  HIP_ERRCHK(hipMemcpyAsync(c, d_c, N_bytes, hipMemcpyDefault, stream_c));
 
   for (int i = 0; i < 20; ++i) printf("%f ", a[i]);
   printf("\n");
