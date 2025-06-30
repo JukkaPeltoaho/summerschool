@@ -48,9 +48,10 @@ int main() {
 
   a = (float*) malloc(N_bytes);
 
-  hipStream_t *stream;
-  HIP_ERRCHK(hipStreamCreate(stream));
+  hipStream_t stream;
+  HIP_ERRCHK(hipStreamCreate(&stream));
   HIP_ERRCHK(hipMallocAsync((void**)&d_a, N_bytes, stream));
+  
 
   memset(a, 0, N_bytes);
 
