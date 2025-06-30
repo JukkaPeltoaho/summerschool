@@ -44,7 +44,7 @@ int main() {
 
   // warmup
   kernel_c<<<gridsize, blocksize>>>(d_a, N);
-  HIP_ERRCHK(hipMemcpyAsync(a, d_a, N_bytes/100, hipMemcpyDefault, stream_a));
+  HIP_ERRCHK(hipMemcpy(a, d_a, N_bytes/100, hipMemcpyDefault));
   HIP_ERRCHK(hipDeviceSynchronize());
 
   // Execute kernels in sequence
