@@ -61,8 +61,9 @@ int main() {
   HIP_ERRCHK(hipGetLastError());
   HIP_ERRCHK(hipMemcpyAsync(a, d_a, N_bytes, hipMemcpyDeviceToHost, stream));
 
+  HIP_ERRCHK(hipStreamSynchronize(stream));
   printf("error: %f\n", max_error(a, N));
   HIP_ERRCHK(hipFreeAsync(d_a, stream));
   free(a);
-
+  HIP_ERRCHK(hipStreamDestroy(stream));
 }
