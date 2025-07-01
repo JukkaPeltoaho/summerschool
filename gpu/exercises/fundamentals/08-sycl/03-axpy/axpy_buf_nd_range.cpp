@@ -5,7 +5,7 @@ using namespace sycl;
 int main() {
   // Set up queue on any available device
   queue q;
-  
+
   // Initialize input and output memory on the host
   constexpr size_t N = 25600;
   std::vector<int> x(N),y(N);
@@ -14,21 +14,24 @@ int main() {
   std::fill(y.begin(), y.end(), 2);
 
   {
-   // Create buffers for the host data or allocate memory usinggUSM
-   // If USM + malloc_device() is used add the copy operations
+    // Create buffers for the host data or allocate memory usinggUSM
+    // If USM + malloc_device() is used add the copy operations
     sycl::buffer<int, 1> x_buf(x.data(), range<1>(N));
     sycl::buffer<int, 1> y_buf(y.data(), range<1>(N));
     // Submit the kernel to the queue
     q.submit([&](handler& cgh) {
       sycl::accessor y_acc{y_buf, cgh, sycl::read_write};
       sycl::accessor x_acc{x_buf, cgh, sycl::read_only};
-      cgh.parallel_for(range<1>(N), [=](id<1> i) {
-        y_acc[i] = a * x_acc[i] +  y_acc[i];
+
+      cgh.parallel_for(sycl::nd_range<1>(sycl::range<1>(((N+local_size-1)/local_size)*local_size), sycl::range<1>(local_size)), [=](sycl::nd_item<1> item) {
+        auto idx=item.get_global_id(0);
+        if(idx<N){ //to avoid out of bounds access
+           y_acc[idx] = y_acc[idx] + a*x_acc[idx];
+        }
       });
     });
 
-
-      //Checking the result inside the scope of the buffers using host_accessors
+    //Checking the result inside the scope of the buffers using host_accessors
     // Use host_accessor to read back the results from Ybuff
     {
       host_accessor h_accY(y_buf, sycl::read_only); // Read back data after kernel execution
@@ -38,7 +41,7 @@ int main() {
       }
     }
   }
-  // If USM + malloc_device() is used add the copy operations 
+  // If USM + malloc_device() is used add the copy operations
   // TODO
   // Check that all outputs match expected value
 
