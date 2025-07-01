@@ -8,6 +8,14 @@
 // clang++ $MPI_flags    -std=c++17 -O3 -fsycl -fsycl-targets=nvptx64-nvidia-cuda,spir64_x86_64 -Xsycl-target-backend=nvptx64-nvidia-cuda --cuda-gpu-arch=sm_80 pp_with_usm.cpp 
 // This is a port of a CUDA code written for the CUDA training at CSC https://github.com/csc-training/CUDA
 // For the compilation check also the instructions for the latest way.
+
+
+/*
+https://github.com/csc-training/high-level-gpu-programming/blob/main/Exercises_Instructions.md
+icpx -fuse-ld=lld -std=c++20 -O3 -fsycl -fsycl-targets=amdgcn-amd-amdhsa,spir64_x86_64 -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx90a `CC --cray-print-opts=cflags` sycl-usm-device-ping-pong.cpp `CC --cray-print-opts=libs`
+srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=2 --nodes=1 --ntasks-per-node=2 --cpus-per-task=1 ./a.out
+
+*/
 #include <cassert>
 #include <iostream>
 #include <numeric>
