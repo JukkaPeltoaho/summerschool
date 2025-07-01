@@ -23,6 +23,11 @@ int main() {
       sycl::accessor y_acc{y_buf, cgh, sycl::read_write};
       sycl::accessor x_acc{x_buf, cgh, sycl::read_only};
 
+
+      // Define work-group size and global size
+      size_t local_size = 256;
+      size_t global_size = ((N + local_size - 1) / local_size) * local_size;
+
       cgh.parallel_for(sycl::nd_range<1>(sycl::range<1>(((N+local_size-1)/local_size)*local_size), sycl::range<1>(local_size)), [=](sycl::nd_item<1> item) {
         auto idx=item.get_global_id(0);
         if(idx<N){ //to avoid out of bounds access
