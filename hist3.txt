@@ -1,0 +1,1000 @@
+   11  git pull
+   12  CC -o pi pi.cpp 
+   13  vi pi.cpp 
+   14  CC -o pi pi.cpp 
+   15  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   16  cat pi.cpp 
+   17  vi pi.cpp 
+   18  CC -o pi pi.cpp 
+   19  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   20  vi pi.cpp 
+   21  CC -o pi pi.cpp 
+   22  srun --account=project_462000956 --nodes=1 --ntasks-per-node=3 --partition=small --time=0:05:00 ./pi
+   23  srun --account=project_462000956 --nodes=1 --ntasks-per-node=24 --partition=small --time=0:05:00 ./pi
+   24  vi pi.cpp 
+   25  CC -o pi pi.cpp 
+   26  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   27  vi pi.cpp 
+   28  CC -o pi pi.cpp 
+   29  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   30  cd ../parallel-pi-general/
+   31  cd solution/
+   32  ls
+   33  CC -o pi pi.cpp 
+   34  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   35  cd ../../
+   36  cd parallel-pi-reduction/
+   37  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   38  vi pi.cpp 
+   39  CC -o pi pi.cpp 
+   40  vi pi.cpp 
+   41  CC -o pi pi.cpp 
+   42  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   43  vi pi.cpp 
+   44  CC -o pi pi.cpp 
+   45  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   46  vi pi.cpp 
+   47  CC -o pi pi.cpp 
+   48  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   49  vi pi.cpp 
+   50  CC -o pi pi.cpp 
+   51  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./pi
+   52  git status
+   53  git add pi.cpp 
+   54  git commit -m "dev7"
+   55  git push
+   56  cd ../broadcast-scatter/
+   57  ls
+   58  CC -o skeleton skeleton.cpp 
+   59  git status
+   60  git pull
+   61  CC -o skeleton skeleton.cpp 
+   62  vi skeleton.cpp 
+   63  CC -o skeleton skeleton.cpp 
+   64  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+   65  vi skeleton.cpp 
+   66  CC -o skeleton skeleton.cpp 
+   67  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+   68  git status 
+   69  cat skeleton.cpp 
+   70  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+   71  git status
+   72  git add skeleton.cpp 
+   73  git commit -m "dev8"
+   74  git push
+   75  exit
+   76  ddt srun ./exchange
+   77  cat exchange.cpp 
+   78  history
+   79  export
+   80  export | grep PATH
+   81  export | grep SLURM
+   82  ddt srun ./collective
+   83  history
+   84  exit
+   85  ddt srun ./collective
+   86  exit
+   87  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/debugging/
+   88  export PATH=/appl/lumi/SW/system/EB/ARMForge/22.0.1/bin/:$PATH
+   89  export SLURM_OVERLAP=1
+   90  salloc -A project_462000956 --nodes=1 --ntasks-per-node=2 --time=00:30:00 --partition=debug 
+   91  salloc -A project_462000956 --nodes=1 --ntasks-per-node=4 --time=00:30:00 --partition=debug 
+   92  exit
+   93  cd /scratch/project_462000956/jpeltoah/summerschool/mpi/
+   94  cd communicator/
+   95  ls
+   96  CC -o skeleton skeleton.cpp 
+   97  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+   98  vi skeleton.cpp 
+   99  CC -o skeleton skeleton.cpp 
+  100  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  101  vi skeleton.cpp 
+  102  git status
+  103  git diff
+  104  git stash
+  105  git pull
+  106  CC -o skeleton skeleton.cpp 
+  107  vi skeleton.cpp 
+  108  CC -o skeleton skeleton.cpp 
+  109  vi skeleton.cpp 
+  110  CC -o skeleton skeleton.cpp 
+  111  vi skeleton.cpp 
+  112  CC -o skeleton skeleton.cpp 
+  113  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./skeleton
+  114  git status
+  115  git add skeleton.cpp 
+  116  git commit -m "dev9"
+  117  git push
+  118  cat skeleton.cpp 
+  119  cd ../../
+  120  cd mpi/message-chain
+  121  ls -lart
+  122  CC -o chain chain.cpp 
+  123  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./chain
+  124  git status
+  125  cd ../debugging/
+  126  CC -g -O0 -o exchange.cpp 
+  127  CC -g -O0 -o exchange exchange.cpp 
+  128  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --partition=small --time=0:05:00 ./exchange
+  129  export PATH=/appl/lumi/SW/system/EB/ARMForge/22.0.1/bin:$PATH
+  130  CC -g -O0 -o exchange exchange.cpp 
+  131  CC -g -O0 -o collective collective.cpp 
+  132  exit
+  133  cd /scratch/project_462000956/jpeltoah/summerschool/openmp/omp-hello/
+  134  ls -la
+  135  CC -fopenmp -o hello hello.cpp 
+  136  ls
+  137  CC  -o hello hello.cpp 
+  138  ./hello 
+  139  CC -fopenmp -o hello hello.cpp 
+  140  OMP_NUM_THREADS=3 ./hello 
+  141  cat hello.cpp 
+  142  OMP_NUM_THREADS=12 ./hello 
+  143  history > ../../hist2.txt 
+  144  git status
+  145  git add  ../../hist2.txt 
+  146  git add ../../mpi/debugging/exchange.cpp 
+  147  git commit -m "dev10"
+  148  git push
+  149  cat hello
+  150  cat hello.cpp 
+  151  OMP_NUM_THREADS=3 ./hello 
+  152  OMP_NUM_THREADS=5 ./hello 
+  153  OMP_NUM_THREADS=1 ./hello 
+  154  OMP_NUM_THREADS=2 ./hello 
+  155  OMP_NUM_THREADS=4 ./hello 
+  156  cd ../
+  157  cd work-sharing/
+  158  git pull
+  159  CC -fopenmp -o skeleton skeleton.cpp 
+  160  vi skeleton.cpp 
+  161  cd /scratch/project_462000956/jpeltoah/summerschool/openmp/work-sharing/
+  162  ls
+  163  vi skeleton.cpp 
+  164  CC -fopenmp -o skeleton skeleton.cpp 
+  165  ls 
+  166  ./skeleton 
+  167  OMP_NUM_THREADS=4 ./skeleton 
+  168  cat skeleton.cpp 
+  169  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --partition=small --time=0:05:00 ./skeleton
+  170  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --partition=small --time=0:05:00 ./skeleton
+  171  git status
+  172  git add skeleton.cpp 
+  173  git commit -m "dev11"
+  174  git push
+  175  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  176  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  177  cat skeleton.cpp 
+  178  vi skeleton.cpp 
+  179  CC -fopenmp -o skeleton skeleton.cpp 
+  180  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  181  vi skeleton.cpp 
+  182  CC -fopenmp -o skeleton skeleton.cpp 
+  183  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  184  git status 
+  185  git add skeleton.cpp 
+  186  git commit -m "dev12"
+  187  git push
+  188  cd ../omp-hello/
+  189  git pull
+  190  CC -fopenmp -o hello hello.cpp 
+  191  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./hello
+  192  vi hello.cpp 
+  193  CC -fopenmp -o hello hello.cpp 
+  194  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./hello
+  195  git status 
+  196  git add hello.cpp 
+  197  cd ..
+  198  cd data-sharing/
+  199  ls
+  200  git pull
+  201  CC -fopenmp -o variables variables.cpp 
+  202  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./variables
+  203  vi variables.cpp 
+  204  CC -fopenmp -o variables variables.cpp 
+  205  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./variables
+  206  vi variables.cpp 
+  207  CC -fopenmp -o variables variables.cpp 
+  208  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./variables
+  209  vi variables.cpp 
+  210  CC -fopenmp -o variables variables.cpp 
+  211  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./variables
+  212  git status
+  213  cat ../omp-hello/hello.cpp 
+  214  git stash
+  215  cat ../omp-hello/hello.cpp 
+  216  git stash pop
+  217  git add ../omp-hello/hello.cpp 
+  218  cat variables.cpp 
+  219  git status
+  220  git commit -m "dev13"
+  221  git push
+  222  cd ../race-condition/
+  223  CC -fopenmp -o skeleton skeleton.cpp 
+  224  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  225  git status 
+  226  git pull
+  227  git status 
+  228  ls
+  229  cd ../reduction/
+  230  ls
+  231  CC -fopenmp -o skeleton skeleton.cpp 
+  232  vi skeleton.cpp 
+  233  CC -fopenmp -o skeleton skeleton.cpp 
+  234  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  235  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./skeleton
+  236  cat skeleton.cpp 
+  237  CC  -o skeleton skeleton.cpp 
+  238  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./skeleton
+  239  cp skeleton.cpp critical.cpp
+  240  vi critical.cpp 
+  241  CC  -o skeleton skeleton.cpp 
+  242  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./skeleton
+  243  CC  -o critical critical.cpp 
+  244  vi critical.cpp 
+  245  CC  -o critical critical.cpp 
+  246  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./critical
+  247  vi critical.cpp 
+  248  CC  -o critical critical.cpp 
+  249  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./critical
+  250  CC -fopenmp -o critical critical.cpp 
+  251  vi critical.cpp 
+  252  CC -fopenmp -o critical critical.cpp 
+  253  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./critical
+  254  vi critical.cpp 
+  255  CC -fopenmp -o critical critical.cpp 
+  256  vi critical.cpp 
+  257  CC -fopenmp -o critical critical.cpp 
+  258  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./critical
+  259  vi critical.cpp 
+  260  CC -fopenmp -o critical critical.cpp 
+  261  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./critical
+  262  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./critical
+  263  exit
+  264  cd /scratch/project_462000956/jpeltoah/summerschool/openmp/w
+  265  cd /scratch/project_462000956/jpeltoah/summerschool/openmp/
+  266  cd reduction/
+  267  CC  -o critical critical.cpp 
+  268  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./critical
+  269  CC -fopenmp -o critical critical.cpp 
+  270  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./critical
+  271  git status
+  272  git add skeleton.cpp critical.cpp 
+  273  git commit -m "dev14"
+  274  git push
+  275  cd ../simple-tasks/
+  276  CC -fopenmp -o tasks tasks.c 
+  277  CC -fopenmp -o tasks tasks.cpp 
+  278  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  279  it status
+  280  git status
+  281  CC -fopenmp -o tasks tasks.cpp 
+  282  ls -la
+  283  ls -lart
+  284  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  285  vi tasks.cpp 
+  286  git pull
+  287  CC -fopenmp -o tasks tasks.cpp 
+  288  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  289  vi tasks.cpp 
+  290  CC -fopenmp -o tasks tasks.cpp 
+  291  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  292  vi tasks.cpp 
+  293  CC -fopenmp -o tasks tasks.cpp 
+  294  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  295  vi tasks.cpp 
+  296  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  297  vi tasks.cpp 
+  298  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./tasks
+  299  cat tasks.cpp 
+  300  CC -fopenmp -o tasks tasks.cpp 
+  301  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=2 --partition=small --time=0:05:00 ./tasks
+  302  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  303  vi tasks.cpp 
+  304  cd /scratch/project_462000956/jpeltoah/summerschool/openmp/simple-tasks/
+  305  jobs
+  306  ps
+  307  vi tasks.cpp 
+  308  CC -fopenmp -o tasks tasks.cpp 
+  309  vi tasks.cpp 
+  310  CC -fopenmp -o tasks tasks.cpp 
+  311  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  312  vi tasks.cpp 
+  313  CC -fopenmp -o tasks tasks.cpp 
+  314  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  315  vi tasks.cpp 
+  316  CC -fopenmp -o tasks tasks.cpp 
+  317  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  318  vi tasks.cpp 
+  319  CC -fopenmp -o tasks tasks.cpp 
+  320  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  321  vi tasks.cpp 
+  322  CC -fopenmp -o tasks tasks.cpp 
+  323  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  324  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=7 --partition=small --time=0:05:00 ./tasks
+  325  git status
+  326  git add tasks.cpp 
+  327  git commit -m "dev15"
+  328  git push
+  329  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=7 --partition=small --time=0:05:00 ./tasks
+  330  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./tasks
+  331  cd ../hybrid-hello/
+  332  git pull
+  333  CC -fopenmp -o skeleton skeleton.cpp 
+  334  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  335  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  336  export OMP_AFFINITY_FORMAT="Thread %0.3n affinity %A"
+  337  export OMP_DISPLAY_AFFINITY=true
+  338  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  339  vi skeleton.cpp 
+  340  CC -fopenmp -o skeleton skeleton.cpp 
+  341  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=4 --partition=small --time=0:05:00 ./skeleton
+  342  git status
+  343  git add skeleton.cpp 
+  344  git commit -m "dev16"
+  345  git push
+  346  exit
+  347  cd /scratch/project_462000956/jpeltoah/summerschool/openmp/
+  348  cd multiple-thread-communication/
+  349  cp ../hybrid-hello/skeleton.cpp multiple.cpp
+  350  rm multiple.cpp
+  351  ls
+  352  git pull
+  353  CC -fopenmp -o multiple multiple.cpp 
+  354  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=3 --partition=small --time=0:05:00 ./multiple
+  355  srun --account=project_462000956 --nodes=2 --ntasks-per-node=1 --cpus-per-task=3 --partition=small --time=0:05:00 ./multiple
+  356  srun --account=project_462000956 --nodes=2 --ntasks-per-node=2 --cpus-per-task=3 --partition=small --time=0:05:00 ./multiple
+  357  vi multiple.cpp 
+  358  CC -fopenmp -o multiple multiple.cpp 
+  359  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=3 --partition=small --time=0:05:00 ./multiple
+  360  git status
+  361  git add multiple
+  362  git commit -m "dev17"
+  363  git push
+  364  cd ../fibonacci/
+  365  ls
+  366  CC -fopenmp -o fibonacci fibonacci.cpp 
+  367  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --partition=small --time=0:05:00 ./fibonacci
+  368  git status
+  369  git diff
+  370  git stash
+  371  git pull
+  372  git stash pop
+  373  git status
+  374  git diff
+  375  ls
+  376  CC -fopenmp -o fibonacci fibonacci.cpp 
+  377  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=3 --partition=small --time=0:05:00 ./fibonacci
+  378  git status
+  379  git add ../multiple-thread-communication/multiple.cpp 
+  380  git commit -m "dev18"
+  381  git push
+  382  git status
+  383  git add ../multiple-thread-communication/multiple.cpp 
+  384  srun --account=project_462000956 --nodes=1 --ntasks-per-node=1 --cpus-per-task=3 --partition=small --time=0:05:00 ./fibonacci
+  385  exit
+  386  cd /scratch/project_462000956/
+  387  ls
+  388  ls |wc
+  389  cd /scratch/project_462000956/jpeltoah/summerschool/
+  390  cd parallel-io/parallel-write/
+  391  ls
+  392  git status
+  393  git pull
+  394  CC  -o parallel-write parallel-write.cpp 
+  395  vi parallel-write.cpp 
+  396  CC  -o parallel-write parallel-write.cpp 
+  397  vi parallel-write.cpp 
+  398  CC  -o parallel-write parallel-write.cpp 
+  399  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  400  ls
+  401  more output.txt 
+  402  vi parallel-write.cpp 
+  403  CC  -o parallel-write parallel-write.cpp 
+  404  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  405  more output.txt 
+  406  more single_writer.dat 
+  407  vi parallel-write.cpp 
+  408  CC  -o parallel-write parallel-write.cpp 
+  409  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  410  more single_writer.dat 
+  411  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  412  git status
+  413  git add parallel-write.cpp 
+  414  git commit -m "dev19"
+  415  git push
+  416  git status
+  417  git pull
+  418  CC  -o parallel-write parallel-write.cpp 
+  419  vi parallel-write.cpp 
+  420  CC  -o parallel-write parallel-write.cpp 
+  421  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  422  ls
+  423  rm output.txt
+  424  more single_writer.dat 
+  425  more collective_write.dat 
+  426  cd solution/
+  427  CC  -o parallel-write parallel-write.cpp 
+  428  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  429  cd ..
+  430  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  431  vi parallel-write.cpp 
+  432  CC  -o parallel-write parallel-write.cpp 
+  433  srun --account=project_462000956 --nodes=1 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  434  vi parallel-write.cpp 
+  435  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  436  git status
+  437  'git diff
+  438  git diff
+  439  git commit -m "dev20"
+  440  git push
+  441  ls -la
+  442  ls -lart
+  443  srun --account=project_462000956 --nodes=2 --ntasks-per-node=1 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  444  git status
+  445  git diff
+  446  git commit -m "dev21"
+  447  git push
+  448  git pull
+  449  git stash
+  450  git pull
+  451  git stash pop
+  452  git diff
+  453  git push
+  454  CC  -o parallel-write parallel-write.cpp 
+  455  vi parallel-write.cpp 
+  456  CC  -o parallel-write parallel-write.cpp 
+  457  vi parallel-write.cpp 
+  458  CC  -o parallel-write parallel-write.cpp 
+  459  srun --account=project_462000956 --nodes=2 --ntasks-per-node=1 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  460  exit
+  461  cd /scratch/project_462000956/jpeltoah/summerschool/
+  462  cd parallel-io/parallel-write/
+  463  CC  -o parallel-write parallel-write.cpp 
+  464  srun --account=project_462000956 --nodes=2 --ntasks-per-node=1 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  465  vi parallel-write
+  466  vi parallel-write.cpp 
+  467  CC  -o parallel-write parallel-write.cpp 
+  468  srun --account=project_462000956 --nodes=2 --ntasks-per-node=1 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  469  srun --account=project_462000956 --nodes=2 --ntasks-per-node=2 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  470  vi parallel-write.cpp 
+  471  CC  -o parallel-write parallel-write.cpp 
+  472  srun --account=project_462000956 --nodes=1 --ntasks-per-node=2 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  473  srun --account=project_462000956 --nodes=2 --ntasks-per-node=2 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  474  vi parallel-write.cpp 
+  475  CC  -o parallel-write parallel-write.cpp 
+  476  srun --account=project_462000956 --nodes=2 --ntasks-per-node=2 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  477  srun --account=project_462000956 --nodes=2 --ntasks-per-node=8 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  478  vi parallel-write.cpp 
+  479  CC  -o parallel-write parallel-write.cpp 
+  480  srun --account=project_462000956 --nodes=2 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  481  srun --account=project_462000956 --nodes=4 --ntasks-per-node=4 --cpus-per-task=1 --partition=small --time=0:05:00 ./parallel-write
+  482  cd ../hdf5-self-study/
+  483  module load cray-hdf5-parallel/1.12.2.11
+  484  ls
+  485  h5ls example_datasets.h5
+  486  h5dump example_datasets.h5
+  487  exit
+  488  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/
+  489  ls
+  490  ls -la
+  491  cd fundamentals/
+  492  ls -la
+  493  cd 01-introduction/
+  494  ls
+  495  cd ..
+  496  cd 02-kernels/
+  497  ls
+  498  module load PrgEnv-cray
+  499  module load LUMI/24.03
+  500  module load partition/G
+  501  module load rocm
+  502  ls
+  503  cd 01_hello_api/
+  504  ls
+  505  cta main.cpp 
+  506  cat main.cpp 
+  507  CC -xhip -o main main.cpp 
+  508  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main
+  509  cd ../02_kernel_launch/
+  510  ls
+  511  CC -xhip -o main main.cpp 
+  512  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main
+  513  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 12
+  514  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 2
+  515  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 1
+  516  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 2 1
+  517  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 10
+  518  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 10 1
+  519  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 10 1025
+  520  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 10 10
+  521  ls ..
+  522  cd ../03_kernel_launch_wrapper/
+  523  ls
+  524  cat main.cpp 
+  525  cat error_checking.hpp 
+  526  git status
+  527  git add ../../../../../parallel-io/parallel-write/parallel-write
+  528  git commit -m "dev22"
+  529  git push
+  530  ls
+  531  CC -xhip -o main main.cpp 
+  532  git status
+  533  git add ../../../../../parallel-io/parallel-write/parallel-write.cpp 
+  534  git commit -m "dev23"
+  535  git push
+  536  git pull
+  537  git push
+  538  CC -xhip -o main main.cpp 
+  539  cat 
+  540  ls
+  541  head error_checking.hpp 
+  542  cat main.cpp 
+  543  vi main.cpp 
+  544  CC -xhip -o main main.cpp 
+  545  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 11 1
+  546  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 10 1
+  547  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 10 1025
+  548  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 1025
+  549  cd ../02_kernel_launch/
+  550  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 1025
+  551  git status
+  552  cd ../03_kernel_launch_wrapper/
+  553  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 1025
+  554  cat main.cpp 
+  555  vi main.cpp 
+  556  CC -xhip -o main main.cpp 
+  557  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 1025
+  558  vi main.cpp 
+  559  git status
+  560  git main.cpp
+  561  git add main.cpp
+  562  git status
+  563  git add ../../../../../parallel-io/parallel-write/*.dat
+  564  git status
+  565  git commit -m "dev24"
+  566  git rm ../../../../../parallel-io/parallel-write/collective_write.dat
+  567  git status
+  568  git commit -m "dev25"
+  569  git push
+  570  git rm ../../../../../parallel-io/parallel-write/
+  571  git commit -m "dev26"
+  572  git push
+  573  git status
+  574  git reset --soft
+  575  git log
+  576  git status
+  577  cat main.cpp 
+  578  CC -xhip -o main main.cpp 
+  579  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 1 1025
+  580  git status
+  581  git log
+  582  git reset --soft ce48781511c3ea9596918064f3a4135d0c5f8648
+  583  git log
+  584  cat main
+  585  cat main.cpp 
+  586  git status
+  587  git log
+  588  git reset --soft 23b2b0da093818c190d034ebc63a7ddb0ed8cb6e
+  589  git status
+  590  git commit -m "dev30"
+  591  git push
+  592  cat main.cpp 
+  593  git pull
+  594  cd ..
+  595  ls
+  596  cd 04_api_queries/
+  597  ls
+  598  CC -xhip -o main main.cpp 
+  599  git status
+  600  git pull
+  601  CC -xhip -o main main.cpp 
+  602  git pull
+  603  CC -xhip -o main main.cpp 
+  604  vi main.cpp 
+  605  CC -xhip -o main main.cpp 
+  606  vi main.cpp 
+  607  CC -xhip -o main main.cpp 
+  608  vi main.cpp 
+  609  CC -xhip -o main main.cpp 
+  610  vi main.cpp 
+  611  CC -xhip -o main main.cpp 
+  612  cat main.cpp 
+  613  cat error_checking.hpp 
+  614  vi error_checking.hpp 
+  615  CC -xhip -o main main.cpp 
+  616  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  617  vi main.cpp 
+  618  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  619  vi main.cpp 
+  620  CC -xhip -o main main.cpp 
+  621  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  622  cat main.cpp 
+  623  vi main.cpp 
+  624  CC -xhip -o main main.cpp 
+  625  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  626  git status
+  627  git add error_checking.hpp main.cpp 
+  628  git commit -m "dev31"
+  629  git push
+  630  git pull
+  631  CC -xhip -o main main.cpp 
+  632  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  633  CC -g -xhip -o main main.cpp 
+  634  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  635  git status
+  636  git pull
+  637  cd ../05_api_errors/
+  638  git pull
+  639  ls
+  640  CC  -xhip -o main main.cpp 
+  641  vi main.cpp 
+  642  CC  -xhip -o main main.cpp 
+  643  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  644  vi main.cpp 
+  645  CC  -xhip -o main main.cpp 
+  646  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  647  vi main.cpp 
+  648  CC  -xhip -o main main.cpp 
+  649  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  650  cat main.cpp 
+  651  vi main.cpp 
+  652  CC  -xhip -o main main.cpp 
+  653  vi main.cpp 
+  654  CC  -xhip -o main main.cpp 
+  655  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  656  vi main.cpp 
+  657  CC  -xhip -o main main.cpp 
+  658  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  659  vi main.cpp 
+  660  CC  -xhip -o main main.cpp 
+  661  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  662  cat main.cpp 
+  663  git status
+  664  git add main.cpp 
+  665  git commit -m "dev32"
+  666  git push
+  667  git status
+  668  git pull
+  669  cd ../06_fill/
+  670  ls
+  671  CC  -xhip -o main main.cpp 
+  672  git pull
+  673  CC  -xhip -o main main.cpp 
+  674  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  675  vi main.cpp 
+  676  CC  -xhip -o main main.cpp 
+  677  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  678  git status
+  679  git add main.cpp 
+  680  git commit -m "dev33"
+  681  git push
+  682  vi main.cpp 
+  683  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  684  CC  -xhip -o main main.cpp 
+  685  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  686  CC  -xhip -o main main.cpp 
+  687  vi main.cpp 
+  688  CC  -xhip -o main main.cpp 
+  689  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  690  vi main.cpp 
+  691  CC  -xhip -o main main.cpp 
+  692  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  693  vi main.cpp 
+  694  CC  -xhip -o main main.cpp 
+  695  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  696  vi main.cpp 
+  697  CC  -xhip -o main main.cpp 
+  698  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  699  vi main.cpp 
+  700  CC  -xhip -o main main.cpp 
+  701  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  702  vi main.cpp 
+  703  CC  -xhip -o main main.cpp 
+  704  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  705  vi main.cpp 
+  706  CC  -xhip -o main main.cpp 
+  707  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  708  vi main.cpp 
+  709  CC  -xhip -o main main.cpp 
+  710  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  711  vi main.cpp 
+  712  CC  -xhip -o main main.cpp 
+  713  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  714  git status
+  715  git diff
+  716  git add main.cpp 
+  717  git commit -m "dev34"
+  718  git push
+  719  exit
+  720  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/
+  721  ls
+  722  cd fundamentals/06-optimization/
+  723  git status
+  724  git pull
+  725  ls
+  726  cd ../02-kernels/06_fill/
+  727  vi main.cpp 
+  728  CC  -xhip -o main main.cpp 
+  729  module load PrgEnv-cray
+  730  module load LUMI/24.03
+  731  module load partition/G
+  732  module load rocm
+  733  CC  -xhip -o main main.cpp 
+  734  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./main 
+  735  git status
+  736  git add main.cpp 
+  737  git commit -m "dev35"
+  738  git push
+  739  cd ../../03-streams/
+  740  ls
+  741  git status
+  742  ls
+  743  CC  -xhip -o 01-basics 01-basics.cpp 
+  744  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./01-basics
+  745  git status 
+  746  git pull
+  747  CC  -xhip -o 01-basics 01-basics.cpp 
+  748  vi 01-basics.cpp 
+  749  CC  -xhip -o 01-basics 01-basics.cpp 
+  750  vi 01-basics.cpp 
+  751  CC  -xhip -o 01-basics 01-basics.cpp 
+  752  vi 01-basics.cpp 
+  753  clear
+  754  CC  -xhip -o 01-basics 01-basics.cpp 
+  755  vi 01-basics.cpp 
+  756  CC  -xhip -o 01-basics 01-basics.cpp 
+  757  clear
+  758  CC  -xhip -o 01-basics 01-basics.cpp 
+  759  vi 01-basics.cpp 
+  760  CC  -xhip -o 01-basics 01-basics.cpp 
+  761  vi 01-basics.cpp 
+  762  CC  -xhip -o 01-basics 01-basics.cpp 
+  763  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./01-basics
+  764  git status
+  765  git add 01-basics.cpp 
+  766  git commit -m "dev36"
+  767  git push
+  768  git pull
+  769  CC  -xhip -o 01-basics 01-basics.cpp 
+  770  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./01-basics
+  771  git status
+  772  git pull
+  773  CC  -xhip -o 02-asynckernel 02-asynckernel.cpp 
+  774  vi 02-asynckernel.cpp 
+  775  CC  -xhip -o 02-asynckernel 02-asynckernel.cpp 
+  776  vi 02-asynckernel.cpp 
+  777  CC  -xhip -o 02-asynckernel 02-asynckernel.cpp 
+  778  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./02-asynckernel
+  779  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./02-asynckernel.cpp
+  780  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./02-asynckernel
+  781  ls -lart
+  782  git add results.json 
+  783  git status
+  784  git commit -m "dev36"
+  785  git push
+  786  ci 02-asynckernel.cpp 
+  787  vi 02-asynckernel.cpp 
+  788  git status
+  789  git add 02-asynckernel.cpp 
+  790  git commit -m "dev37"
+  791  git push
+  792  git status
+  793  git pull
+  794  CC  -xhip -o 02-asynckernel 02-asynckernel.cpp 
+  795  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./02-asynckernel
+  796  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1  ./02-asynckernel
+  797  git status
+  798  git add results.json 
+  799  git commit -m "dev38"
+  800  git push
+  801  git pull
+  802  CC  -xhip -o 02-asynckernel 02-asynckernel.cpp 
+  803  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1  ./02-asynckernel
+  804  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./02-asynckernel
+  805  ls -la 
+  806  ls -lart 
+  807  cp results.json ~/results.json
+  808  ls ~
+  809  rm ~/results.json
+  810  git status
+  811  git add results.json 
+  812  git commit -m "dev39" | git push
+  813  ls -lart
+  814  git status
+  815  exit
+  816  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/fundamentals/03-streams/
+  817  ls
+  818  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./02-asynckernel
+  819  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/
+  820  cd fundamentals/06-optimization/
+  821  ls
+  822  cd 01-trace/
+  823  ls
+  824  CC  -xhip -o streams streams.cpp 
+  825  module load PrgEnv-cray
+  826  module load LUMI/24.03
+  827  module load partition/G
+  828  module load rocm
+  829  CC  -xhip -o streams streams.cpp 
+  830  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./streams
+  831  cp results.json ~/results.json
+  832  rm ~/results.json
+  833  git status
+  834  git add ../../03-streams/results.json results.json 
+  835  git commit -m "dev40" | git push
+  836  ls
+  837  git status
+  838  ls -lart
+  839  git log
+  840  git push
+  841  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./streams
+  842  CC  -xhip -o streams streams.cpp 
+  843  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./streams
+  844  vi streams.cpp 
+  845  CC  -xhip -o streams streams.cpp 
+  846  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./streams
+  847  vi streams.cpp 
+  848  CC  -xhip -o streams streams.cpp 
+  849  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof --hip-trace ./streams
+  850  git status
+  851  rm ../../../../../parallel-io/parallel-write/solution/*.dat
+  852  git status
+  853  rm results.s*
+  854  rm results.copy_stats.csv
+  855  git status
+  856  rm ../../../../../openmp/work-sharing/skeleton ../../../../../mpi/parallel-pi-reduction/pi
+  857  git status
+  858  rm ../../02-kernels/01_hello_api/main ../../02-kernels/02_kernel_launch/main ../../02-kernels/03_kernel_launch_wrapper/main ../../02-kernels/04_api_queries/main
+  859  git status
+  860  git stash
+  861  git status
+  862  git clean -f
+  863  git status
+  864  cd ../../../
+  865  cd ..
+  866  git clean -f
+  867  git status
+  868  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/fundamentals/06-optimization/02-coalescing/
+  869  ls -lart
+  870  CC  -xhip -o copy copy.cpp 
+  871  module load PrgEnv-cray
+  872  module load LUMI/24.03
+  873  module load partition/G
+  874  module load rocm
+  875  CC  -xhip -o copy copy.cpp 
+  876  ls -lart
+  877  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof -i metrics.txt -o metrics.csv ./copy
+  878  ls -lart
+  879  cat metrics.csv 
+  880  grep L2 metrics.csv 
+  881  git status
+  882  git add metrics.csv 
+  883  git commit -m "dev41" | git push
+  884  exit
+  885  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/fundamentals/06-optimization/02-coalescing/
+  886  history
+  887  module load PrgEnv-cray && module load LUMI/24.03 && module load partition/G && module load rocm
+  888  CC  -xhip -o copy copy.cpp 
+  889  ls -lart
+  890  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof -i metrics.txt -o metrics.csv ./copy
+  891  ls -lart
+  892  git status
+  893  git pull
+  894  CC  -xhip -o copy copy.cpp 
+  895  vi copy.cpp 
+  896  CC  -xhip -o copy copy.cpp 
+  897  vi copy.cpp 
+  898  CC  -xhip -o copy copy.cpp 
+  899  ls -lart
+  900  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof -i metrics.txt -o metrics.csv ./copy
+  901  vi copy.cpp 
+  902  CC  -xhip -o copy copy.cpp 
+  903  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 rocprof -i metrics.txt -o metrics.csv ./copy
+  904  git status
+  905  git diff copy.cpp
+  906  git stash
+  907  git pull
+  908  git status
+  909  git stash pop
+  910  git add copy.cpp 
+  911  git commit -m "dev42" | git push
+  912  git status
+  913  exit
+  914  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/fundamentals/07-openmp/01-hello-world/
+  915  git status
+  916  module load PrgEnv-cray
+  917  module load LUMI/24.03
+  918  module load partition/G
+  919  module load rocm
+  920  ls
+  921  CC -fopenmp hello.c
+  922  ls
+  923  rm a.out
+  924  CC -fopenmp -o hello hello.c
+  925  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  926  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=2 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  927  source ../modules-gpu
+  928  source ../modules-cpu
+  929  CC -fopenmp -o hello hello.c
+  930  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  931  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00  --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  932  source ../modules-gpu
+  933  CC -fopenmp -o hello hello.c
+  934  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00  --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  935  source ../../modules-cpu
+  936  ls ..
+  937  module unload rocm
+  938  module load LUMI/24.03
+  939  module load partition/C
+  940  CC -fopenmp -o hello hello.c
+  941  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  942  module load PrgEnv-cray
+  943  module load LUMI/24.03
+  944  module load partition/G
+  945  module load rocm
+  946  CC -fopenmp -o hello hello.c
+  947  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  948  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00  --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+  949  git status
+  950  cd ../02-sum-dot/
+  951  ls
+  952  git pull
+  953  CC -fopenmp -o sum-dot sum-dot.c
+  954  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./sum-dot
+  955  CC -fopenmp -o sum-dot sum-dot.c
+  956  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./sum-dot
+  957  cd solution/
+  958  ls
+  959  CC -fopenmp -o sum-dot sum-dot.c
+  960  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./sum-dot
+  961  cd ..
+  962  git status
+  963  git pull
+  964  cd ../03-dot-product/
+  965  ls
+  966  CC -fopenmp -o dot-product dot-product.c
+  967  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./dot-product
+  968  cd solution/
+  969  CC -fopenmp -o dot-product dot-product.c
+  970  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./dot-product
+  971  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ../dot-product
+  972  git status
+  973  cd ..
+  974  CC -fopenmp -Minfo=all -o dot-product dot-product.c
+  975  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 solution/dot-product
+  976  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./dot-product
+  977  vi dot-product.c
+  978  CC -fopenmp -Minfo=all -o dot-product dot-product.c
+  979  CC -fopenmp -fsave-lookmark -o dot-product dot-product.c
+  980  CC -fopenmp -fsave-loopmark -o dot-product dot-product.c
+  981  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./dot-product
+  982  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 solution/dot-product
+  983  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./dot-product
+  984  git status
+  985  git add dot-product.c
+  986  git commit -m "dev43" | git push
+  987  ls
+  988  head dot-product.lst 
+  989  more dot-product.lst 
+  990  git add dot-product.lst 
+  991  ls -la
+  992  git commit -m "dev44" | git push
+  993  git status
+  994  exit
+  995  cd /scratch/project_462000956/jpeltoah/summerschool/gpu/exercises/fundamentals/08-sycl/00-hello/
+  996  source /projappl/project_462000956/apps/intel/oneapi/setvars.sh --include-intel-llvm
+  997  module load LUMI/24.03
+  998  module load partition/G
+  999  module load rocm/6.2.2
+ 1000  export  HSA_XNACK=1 # enables managed memory
+ 1001  export MPICH_GPU_SUPPORT_ENABLED=1                                # Needed for using GPU-aware MPI
+ 1002  ls
+ 1003  icpx -fuse-ld=lld -std=c++20 -O3 -fsycl -fsycl-targets=amdgcn-amd-amdhsa,spir64_x86_64 -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx90a hello.cpp
+ 1004  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./a.out 
+ 1005  rm a.out
+ 1006  icpx -fuse-ld=lld -std=c++20 -O3 -fsycl -fsycl-targets=amdgcn-amd-amdhsa,spir64_x86_64 -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx90a -o hello hello.cpp
+ 1007  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 ./hello
+ 1008  ./hello 
+ 1009  history ../../../../../hist3.txt
+ 1010  history > ../../../../../hist3.txt
