@@ -4,7 +4,7 @@ using namespace sycl;
 
 int main() {
   // Set up queue on any available device
-  //TODO 
+  queue q;
   
   // Initialize input and output memory on the host
   constexpr size_t N = 25600;
@@ -16,17 +16,15 @@ int main() {
   {
    // Create buffers for the host data or allocate memory usinggUSM
    // If USM + malloc_device() is used add the copy operations
-   // TODO
-
+    sycl::buffer<int, 1> x_buf(x.data(), range<1>(N));
+    sycl::buffer<int, 1> y_buf(y.data(), range<1>(N));
     // Submit the kernel to the queue
     q.submit([&](handler& h) {
-      // Create accessors if necessary
-      //TODO
-
-      h.parallel_for(
-        //The kernel as a lambda
-        //TODO
-      );
+      sycl::accessor y_acc{y_buf, cgh, sycl::read_write};
+      sycl::accessor x_acc{x_buf, cgh, sycl::read_only};
+      cgh.parallel_for(range<1>(N), [=](id<1> i) {
+        y_acc[i] = a * x_acc[i] +  y_acc[i];
+      });
     });
 
       //TODO after the submission works
