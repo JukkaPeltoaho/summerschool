@@ -1,0 +1,10 @@
+ 1089  module load rocm/6.2.2
+ 1090  export  HSA_XNACK=1 # enables managed memory
+ 1091  export MPICH_GPU_SUPPORT_ENABLED=1                                # Needed for using GPU-aware MPI
+ 1092  icpx -fuse-ld=lld -std=c++20 -O3 -fsycl -fsycl-targets=amdgcn-amd-amdhsa,spir64_x86_64 -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx90a 'CC --cray-print-opts=cflags' sycl-usm-device-ping-pong.cpp 'CC --cray-print-opts=libs'
+ 1093  icpx -fuse-ld=lld -std=c++20 -O3 -fsycl -fsycl-targets=amdgcn-amd-amdhsa,spir64_x86_64 -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx90a `CC --cray-print-opts=cflags` sycl-usm-device-ping-pong.cpp `CC --cray-print-opts=libs`
+ 1094  ls
+ 1095  ls -la
+ 1096  srun --job-name=example --account=project_462000956 --partition=small-g --reservation=SummerSchoolGPU --time=00:05:00 --gpus-per-node=2 --nodes=1 --ntasks-per-node=2 --cpus-per-task=1 ./a.out 
+ 1097  history | tail
+ 1098  history | tail > ../../../../../../hist4.txt
