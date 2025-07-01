@@ -97,6 +97,8 @@ void GPUtoGPUviaHost(int rank, double *hA, double *dA, int N, double &timer)
 
 
 /* Ping-pong test for direct GPU-to-GPU communication using HIP-aware MPI */
+// This requires this in environment:
+// export MPICH_GPU_SUPPORT_ENABLED=1
 void GPUtoGPUdirect(int rank, double *dA, int N, double &timer)
 {
     double start, stop;
@@ -105,27 +107,21 @@ void GPUtoGPUdirect(int rank, double *dA, int N, double &timer)
     // TODO: Implement a GPU-to-GPU ping-pong that communicates directly
     //       from GPU memory using HIP-aware MPI.
     if (rank == 0) {
-        // Copy vector to host and send it to rank 1
-        hipMemcpy(hA, dA, sizeof(double) * N,
-                               hipMemcpyDeviceToHost);
-        MPI_Send(hA, N, MPI_DOUBLE, 1, 11, MPI_COMM_WORLD);
-        // Receive vector from rank 1 and copy it to the device
-        MPI_Recv(hA, N, MPI_DOUBLE, 1, 12, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        hipMemcpy(dA, hA, sizeof(double) * N,
-                               hipMemcpyHostToDevice);
+    	// Send vector to rank 1
+        MPI_Send(dA, N, MPI_DOUBLE, 1, 11, MPI_COMM_WORLD);
+        // Receive vector from rank 1
+        MPI_Recv(dA, N, MPI_DOUBLE, 1, 12, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     } else if (rank == 1) {
-        // Receive vector from rank 0 and copy it to the device
-        MPI_Recv(hA, N, MPI_DOUBLE, 0, 11, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        hipMemcpy(dA, hA, sizeof(double) * N,
-                    hipMemcpyHostToDevice);
-        // Launch kernel to increment values on the GPU
         int blocksize = 128;
         int gridsize = (N + blocksize - 1) / blocksize;
+
+        // Receive vector from rank 0
+        MPI_Recv(dA, N, MPI_DOUBLE, 0, 11, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        // Launch kernel to increment values on the GPU
         add_kernel<<<gridsize, blocksize>>> (dA, N);
-        hipMemcpy(hA, dA, sizeof(double) * N,
-                    hipMemcpyDeviceToHost);
-        // Copy vector to host and send it to rank 0
-        MPI_Send(hA, N, MPI_DOUBLE, 0, 12, MPI_COMM_WORLD);
+        hipStreamSynchronize(0);
+        // Send vector to rank 0
+        MPI_Send(dA, N, MPI_DOUBLE, 0, 12, MPI_COMM_WORLD);
     }
 
     stop = MPI_Wtime();
