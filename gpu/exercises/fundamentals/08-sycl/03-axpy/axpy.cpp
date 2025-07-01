@@ -19,7 +19,7 @@ int main() {
     sycl::buffer<int, 1> x_buf(x.data(), range<1>(N));
     sycl::buffer<int, 1> y_buf(y.data(), range<1>(N));
     // Submit the kernel to the queue
-    q.submit([&](handler& h) {
+    q.submit([&](handler& cgh) {
       sycl::accessor y_acc{y_buf, cgh, sycl::read_write};
       sycl::accessor x_acc{x_buf, cgh, sycl::read_only};
       cgh.parallel_for(range<1>(N), [=](id<1> i) {
