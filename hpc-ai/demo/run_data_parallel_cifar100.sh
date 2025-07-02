@@ -2,6 +2,7 @@
 #SBATCH --job-name=data_parallel_cifar100
 #SBATCH --account=project_462000956
 #SBATCH --partition=small-g
+#SBATCH --reservation=SummerSchoolGPU
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
