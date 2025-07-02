@@ -8,6 +8,8 @@ lang:   en
 
 # Nuuksio National Park
 
+*A green oasis in the Helsinki capital region*
+
 <https://www.luontoon.fi/en/destinations/nuuksio-national-park>
 
 # Neighborhood
@@ -38,9 +40,10 @@ Map: <https://www.retkikartta.fi/> (Good for hiking!)
 - All lectures and exercises will take place in **Kelohonka** room
 - Breakfast, lunch, and dinner will be served in **Nuuksion Tupa** restaurant
 - Special events (see [schedule](https://github.com/csc-training/summerschool)):
-  - Get together and lighting talks on Tue 24.6. in **Loimu** room
-  - **Lake Sauna** reserved for us on Wed 25.6., Fri 27.6., and Mon 30.6.
+  - Get together and lighting talks on Tue 24.6. at 19:00 in **Loimu** room
+  - **Lake Sauna** reserved for us on Wed 25.6., Fri 27.6., and Mon 30.6. from 19:30--
   - Farewell dinner on Wed 2.7. will be served in **Hopeapaju** room
+    - Room open from 18:00--, dinner server from 19:00--
 - Feel free to use hotel facilities at all times
   - Indoor sauna and pool can be used if there is no private bookings
 
@@ -49,7 +52,7 @@ Map: <https://www.retkikartta.fi/> (Good for hiking!)
 - On most days free-form sports sessions at 16:00--17:00
   - Good chance to socialize and get out of the computer!
 - Special guided sports sessions:
-  - Wed 25.6. 15:30--17:00: Nuuksio Olympic Games
+  - Wed 25.6. 15:45--17:15: Nuuksio Olympic Games
   - Wed 2.7. 16:00--18:00: Boating at the lake
 - Free access to hotel gym, rowing boats, tennis rackets, mölkky games, etc.
 - Hiking trails to Nuuksio National Park leave right from the hotel yard
@@ -60,20 +63,27 @@ Map: <https://www.retkikartta.fi/> (Good for hiking!)
 # Attendance list
 
 - Please mark "x" for your name **every morning** in the list outside the lecture room
-- This is a hearbeat signal -- We want to keep track that no-one has gotten lost in the forest etc
+- This is a hearbeat signal -- We want to keep track that no-one has gotten lost in the forest etc.
   - Before you do, please save [the phone numbers of organizers](https://github.com/csc-training/summerschool/wiki#contacts) in your phone
+
+# In case a ticks bites
+
+- Remove the tick attached to the skin immediately and monitor the bite site
+  - Please borrow thin tweezers from [the organizers](https://github.com/csc-training/summerschool/wiki#contacts) or ask help for removing it
+- It's advisable to do regular tick checks to detect tick at an early stage
+- See further information [here](https://www.mehilainen.fi/en/tick-bite) or [here](https://www.terveyskyla.fi/en/emergencyhub/self-care-instructions-in-sudden-health-problems/ticks)
 
 # Code of conduct
 
-- We work in the spirit of [the CodeRefinery Code of Conduct](https://coderefinery.org/about/code-of-conduct/) in the summer school.
-- In short: Please be nice and respectful with one another.
-- Report any inappropriate behavior to [the organizers](https://github.com/csc-training/summerschool/wiki#contacts).
+- We work in the spirit of [the CodeRefinery Code of Conduct](https://coderefinery.org/about/code-of-conduct/) in the summer school
+- In short: Please be nice and respectful with one another
+- Report any inappropriate behavior to [the organizers](https://github.com/csc-training/summerschool/wiki#contacts)
 
 # Photography
 
 - Be respectful and ask people before photographing them, and before posting their pictures on social media.
 - Note the color of lanyards:
-  - **white lanyard** is the default lanyard without any special meaning
+  - **white lanyard** means: ok to be visible in photos
   - **black lanyard** means: no photos, no social media
 - Please keep your lanyard visible throughout the school, especially for the photoshoot on Wed 2.7.
 
@@ -81,6 +91,12 @@ Map: <https://www.retkikartta.fi/> (Good for hiking!)
 
 - Feel free to use the chat channel for organizing social activities, asking questions, free discussion, etc.
   - <https://chat.csc.fi/group/CSC_Summer_School_in_HPC_2025>
+
+# Acknowledgements
+
+<div style="position: absolute; left:0.0em; top:3.0em">
+![](img/acknowledgements.svg){.center width=80%}
+</div>
 
 
 # School content {.section}
@@ -123,6 +139,7 @@ Map: <https://www.retkikartta.fi/> (Good for hiking!)
   - Schedule, practical information (in [wiki](https://github.com/csc-training/summerschool/wiki))
 - Feel free to fork the repository for your own use
 - After the school, a static copy of 2025 content will be published as a release under GitHub
+
 
 # Welcome to the school!
 
